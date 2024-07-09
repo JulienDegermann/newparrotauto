@@ -1,0 +1,34 @@
+/* import carousel styles */
+@import "node_modules/@glidejs/glide/src/assets/sass/glide.core";
+@import "node_modules/@glidejs/glide/src/assets/sass/glide.theme";
+
+svg {
+  width: 30px;
+  height: 30px;
+  scale: 1;
+  transition: all .3s;
+
+  &:hover {
+    scale: 1.5;
+  }
+
+  path {
+    stroke-width: 50px;
+  }
+}
+
+.fill svg {
+  fill: var(--SECONDARY);
+}
+
+.empty svg {
+  fill: transparent;
+
+  path {
+    stroke: var(--PRIMARY);
+  }
+}
+
+.fill, .empty {
+  display: inline;
+}

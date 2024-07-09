@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <header>
+    {% include './_partials/_layout/_head.html.twig' %}
+    {% block stylesheets %}
+      {# custom stylesheets #}
+    {% endblock %}
+    {{ encore_entry_script_tags('app') }}
+    {% block scripts %}
+      {# custom scripts #}
+    {% endblock %}
+  </header>
+
+  <header id="header">
+    {% include './_partials/_layout/_header.html.twig' %}
+  </header>
+
+  <main>
+    {% block body %}
+      {# content of the page #}
+    {% endblock %}
+  </main>
+  <footer id="footer">
+    {% include './_partials/_layout/_footer.html.twig' %}
+  </footer>
+  
+
+
+</html>

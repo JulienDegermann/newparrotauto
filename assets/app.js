@@ -7,3 +7,17 @@
 
 // any CSS you import will output into a single css file (app.css in this case)
 import './styles/app.css';
+import Glide, {Controls} from '@glidejs/glide';
+console.log('chargé WP')
+
+
+
+const commentCarousel = new Glide('#commentCarousel', {
+  type: 'carousel',
+  perView: 2,
+  focusAt: 'center',
+  controls: true
+})
+
+console.log(commentCarousel)
+commentCarousel.mount()

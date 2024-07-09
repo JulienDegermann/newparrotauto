@@ -50,13 +50,18 @@ db_update:
 	make db_migrate
 .PHONY: db_update
 
+
+cities:
+	$(SYMFONY) app:import-cities
+.PHONY: cities
+
 datas:
 	make cities
 	make load_fixtures
 .PHONY: datas
 
 db_start_datas:
-	make_db_start
+	make db_start
 	make datas
 .PHONY: db_start_datas
 

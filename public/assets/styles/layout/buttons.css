@@ -1,0 +1,43 @@
+.button {
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  display: inline-block;
+
+  &:hover {
+    scale: 1.1;
+  }
+}
+
+.outlined {
+  border: 2px solid var(--DARK);
+  color: var(--DARK);
+}
+
+.filled {
+  background: var(--DARK);
+  color: var(--PRIMARY);
+}
+
+.CTA {
+  background: var(--PRIMARY);
+  color: var(--DARK);
+  text-transform: uppercase;
+  border: none;
+
+  &:hover {
+    box-shadow: var(--SHADOW_LIGHT_INSET);    
+  }
+}
+
+.link {
+  color: var(--DARK);
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  display: inline-block;
+
+  &:hover {
+    color: var(--PRIMARY);
+  }
+}

@@ -1,0 +1,41 @@
+#heroBanner {
+  height: 50vh;
+  display: flex;
+  padding: 0;
+}
+
+#heroBanner .services {
+  flex: 1;
+  border: 1px solid var(--LIGHT);
+  height: 100%;
+  transition: all 0.3s;
+  background: var(--GRADIENT_LIGHT_DARK);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  overflow: hidden;
+}
+
+#heroBanner .services:hover {
+  flex: 4;
+}
+
+#heroBanner .services h2 {
+  background: var(--DARK_75);
+  color: var(--LIGHT);
+  padding: 2rem;
+}
+
+#heroBanner .service {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  transition: all 0.3s;
+}
+
+#heroBanner .services:hover .service {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%)
+}

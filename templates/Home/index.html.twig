@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+{% block stylesheets %}
+  <link rel="stylesheet" href="{{ asset('assets/styles/home/home.css') }}" />
+  <link rel="stylesheet" href="node_modules/@glidejs/glide/dist/css/glide.core.min.css" />
+  
+  <link rel="stylesheet" href="node_modules/@glidejs/glide/dist/css/glide.theme.min.css" />
+{% endblock %}
+
+{% block scripts %}
+{% endblock %}
+
+{% block body %}
+  {% include '_partials/_home/_heroBanner.html.twig' %}
+  {% include '_partials/_home/_comments.html.twig' %}
+{% endblock %}
+
+

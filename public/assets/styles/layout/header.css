@@ -1,0 +1,19 @@
+#header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--GRADIENT_LIGHT_LIGHT_00);
+  padding: 1rem 2rem;
+  backdrop-filter: blur(10px);
+}
+
+header .container .flex {
+  justify-content: space-between;
+  align-items: center;
+}
+
+#header .container #mainTitle {
+  padding: 1rem;
+  color: var(--DARK); 
+  font-size: 1rem;
+}

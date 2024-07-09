@@ -1,0 +1,35 @@
+<section id="comments">
+  <div class="container">
+    <h2 class="sectionTitle">votre avis compte</h2>
+
+    <div id="commentCarousel">
+      {# <div class="glide__arrows" data-glide-el="controls">
+        <button class="glide__arrow glide__arrow--left" data-glide-dir="<">prev</button>
+        <button class="glide__arrow glide__arrow--right" data-glide-dir=">">next</button>
+      </div> #}
+      <div class="glide__track" data-glide-el="track">
+        <ul class="glide__slides">
+          {% for comment in comments %}
+            <li class="glide__slide">
+              <div>
+                <p>{{ comment.text }}</p>
+                <p>{{ comment.name }}</p>
+                {% for i in 1..5 %}
+                  {% if i <= comment.note %}
+                    <div class="fill">
+                      {% include '_partials/_svg/_star.svg' %}
+                    </div>
+                  {% else %}
+                    <div class="empty">
+                      {% include '_partials/_svg/_star.svg' %}
+                    </div>
+                  {% endif %}
+                {% endfor %}
+              </div>
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>

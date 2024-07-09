@@ -1,0 +1,12 @@
+<section id="heroBanner">
+  {% for key, service in services %}
+    <div class="services">
+      <div class="service">
+        {% for serviceItem in service %}
+          <p>{{ serviceItem }}</p>
+        {% endfor %}
+      </div>
+      <h2>{{ key }}</h2>
+    </div>
+  {% endfor %}
+</section>

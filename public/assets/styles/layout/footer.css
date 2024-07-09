@@ -1,0 +1,31 @@
+#footer .navLink:hover {
+  scale: none;
+}
+
+
+#footer {
+  background: var(--LIGHT);
+  padding: 1rem 2rem;
+}
+
+#footer .sectionTitle {
+  font-size: 1.2rem;
+}
+
+#footer .navList {
+  flex-direction: column;
+}
+
+#footer .flex {
+  justify-content: space-between;
+
+  &>div {
+    flex: 1;
+  }
+}
+
+#footer .link {
+  width: 100%;
+  text-transform: lowercase;
+  padding: .5rem;
+}

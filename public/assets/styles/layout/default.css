@@ -1,0 +1,50 @@
+/* DEFAULTS STYLES ALL PAGES */
+
+/* reset default styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style: none;
+  text-decoration: none;
+  transition: all .3s;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+a {
+  width: auto;
+  color: inherit;
+
+}
+
+/* new default styles */
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: var(--LIGHT);
+  color: var(--DARK);
+  font-size: 16px;
+}
+
+/* section */
+section {
+  padding: 8rem 0;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.flex {
+  display: flex;
+}
+
+.sectionTitle {
+  font-size: 3rem;
+  margin-bottom: 2rem;
+  color: var(--GRADIENT_PRIMARY_DARK);
+}

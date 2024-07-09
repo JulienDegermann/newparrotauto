@@ -1,0 +1,17 @@
+.navigation {
+  width: max-content;
+}
+
+.navList {
+  display: flex;
+}
+
+.navLink {
+  padding: 1rem 2rem;
+  color: var(--DARK);
+}
+
+.navLink:hover {
+  text-transform: uppercase;
+  scale: 1.1;
+}
