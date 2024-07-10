@@ -5,13 +5,19 @@
 #detail .infoTitle {
   font-size: 1.5em;
   font-weight: bold;
-  margin: 3rem 0 1rem
+  margin: 3rem 0 1rem;
+
+  &:first-of-type {
+    margin-top: 0;
+  }
 }
 
-#detail ul, #detail p {
+#detail ul,
+#detail p {
   margin: 1rem;
 }
-.flex > div {
+
+.flex>div {
   flex: 1;
   margin: 1rem;
 }
@@ -20,5 +26,21 @@
   img {
     width: 100%;
     object-fit: cover;
+  }
+}
+
+#detail ul li {
+  margin: .5rem;
+
+  &::before {
+    content: '';
+    display: inline-block;
+    width: 10px;
+    height: 4px;
+    position: relative;
+    top: -.25em;
+    border-radius: 50%;
+    background: var(--PRIMARY);
+    margin-right: .5rem;
   }
 }

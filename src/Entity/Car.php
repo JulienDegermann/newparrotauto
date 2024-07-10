@@ -55,12 +55,16 @@ class Car
      */
     #[ORM\ManyToMany(
         targetEntity: Equipment::class,
-        mappedBy: 'cars',
+        inversedBy: 'cars',
         cascade: ['persist', 'remove'],
     )]
     private Collection $equipments;
 
-    #[ORM\OneToMany(mappedBy: 'car', targetEntity: Image::class, cascade: ['persist', 'remove'], orphanRemoval: true)]
+    #[ORM\OneToMany(
+        mappedBy: 'car', 
+        targetEntity: Image::class, 
+        cascade: ['persist', 'remove'], 
+        orphanRemoval: true)]
     private Collection $images;
 
     public function __construct()

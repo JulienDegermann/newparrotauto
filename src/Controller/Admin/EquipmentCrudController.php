@@ -35,7 +35,7 @@ class EquipmentCrudController extends AbstractCrudController
     {
         return [
             TextField::new('text', 'Nom de l\'équipement'),
-            // AssociationField::new('cars', 'Véhicules')->autocomplete(),
+            AssociationField::new('cars', 'Véhicules')->autocomplete(),
         ];
     }
     

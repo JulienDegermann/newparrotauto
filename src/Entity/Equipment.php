@@ -22,7 +22,8 @@ class Equipment
      */
     #[ORM\ManyToMany(
         targetEntity: Car::class,
-        inversedBy: 'equipments',
+        mappedBy: 'equipments',
+        cascade: ['persist', 'remove']
     )]
     private Collection $cars;
 
