@@ -1,0 +1,17 @@
+<div class="card">
+  <img src="./uploads/images/vehicules/test.jpg" alt="photo de {{ car.model }}" />
+  <div class="cardShadow">
+    <div class="flex">
+      <div>
+        <h3>{{ car.model|upper }}</h3>
+        <p>{{ car.mileage }} kms</p>
+        {# <p>{{ car.circulationDate|date('d/m/Y', 'Europe/Paris') }}</p> #}
+      </div>
+
+      <div class="price">
+        <p>{{ car.price }} €</p>
+      </div>
+      {# <a href="{{ path('vehicule_show', { id: car.id }) }}" class="button outlined">Voir la fiche</a> #}
+    </div>
+  </div>
+</div>

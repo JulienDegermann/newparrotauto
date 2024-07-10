@@ -1,0 +1,15 @@
+@import './card.css';
+
+#cars .grid {
+  display: grid;
+  grid-template-columns: repeat(1, minmax(300px, 1fr));
+  grid-template-rows: auto;
+  gap: 2rem;
+
+  @media screen and (min-width: 768px) and (max-width: 1023px) {
+    grid-template-columns: repeat(2, minmax(300px, 1fr));
+  }
+  @media screen and (min-width: 1024px) {
+    grid-template-columns: repeat(3, minmax(300px, 1fr));
+  }
+}

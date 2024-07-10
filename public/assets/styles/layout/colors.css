@@ -18,7 +18,7 @@
 
   /* box shadows colors */
   --SHADOW_LIGHT_INSET: 0 0 12px 6px var(--LIGHT) inset;
-  --SHADOW_DARK_50_INSET: 0 0 12px 6px var(--DARK_75) inset;
+  --SHADOW_DARK_75_INSET: 0 0 12px 6px var(--DARK_75) inset;
   --SHADOW_LIGHT: 0 0 12px 6px var(--LIGHT);
   --SHADOW_DARK_75: 0 0 12px 6px var(--DARK_75);
 }
