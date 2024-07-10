@@ -15,10 +15,22 @@ class VehiculesController extends AbstractController
     ): Response {
         $cars = $carRepository->findAll();
 
-        // dd($cars);
-
         return $this->render('Vehicules/index.html.twig', [
             'cars' => $cars
+        ]);
+    }
+
+    #[Route('/nos-occasions/{id}', name: 'app_vehicule_show')]
+    public function detail(
+        CarRepository $carRepository,
+        $id
+    ): Response {
+        
+        $car = $carRepository->findOneBy(['id' => $id]);
+
+
+        return $this->render('Vehicules/detail.html.twig', [
+            'car' => $car
         ]);
     }
 }

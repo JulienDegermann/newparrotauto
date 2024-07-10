@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+  <link rel="stylesheet" href="{{ asset('assets/styles/vehicules/detail.css') }}" />
+{% endblock %}
+
+{% block body %}
+  <section id="detail">
+    <div class="container">
+      <h2 class="sectionTitle">{{ car.model }}</h2>
+      <div class="flex">
+        <div class="images">
+          {% if car.images is not empty %}
+            <img src="{{ asset('uploads/images/vehicules/' ~ car.images[0].getFileName) }}" alt="photo de {{ car.model }}" />
+          {% else %}
+            <img src="{{ asset('assets/images/no-image.jpeg') }}" alt="image par défaut" />
+          {% endif %}
+        </div>
+        <div class="infos">
+          <h3 class="infoTitle">informations générales</h3>
+          <ul>
+            <li>Marque : {{ car.model.brand }}</li>
+            <li>Modèle : {{ car.model.name }}</li>
+            <li>1ère mise en circulation : {{ car.circulationDate|date('m / Y', 'Europe/Paris') }}</li>
+            <li>Kilométrage : {{ car.mileage }} kms</li>
+            <li>Carburant : {{ car.energy }}</li>
+          </ul>
+
+          <h3 class="infoTitle">liste des équipements</h3>
+          <ul>
+            {% for equipment in car.equipments %}
+              {{ equipment }}
+            {% endfor %}
+          </ul>
+          <h3 class="infoTitle">description du véhicule</h3>
+
+          <p>{{ car.text }}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+{% endblock %}

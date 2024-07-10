@@ -21,7 +21,7 @@ trait TextTrait
       minMessage: 'Le champ doit contenir au moins {{ min }} caractères.',
     ),
     new Assert\Regex(
-      pattern: '/^[a-zA-Z0-9\s\-\p{L}]{2,}$/u',
+      pattern: '/^[a-zA-Z0-9\s\.\,\'\-\p{L}]{2,}$/u',
       message: 'Ce champ contient des caractères non autorisés.'
   )
   ])]

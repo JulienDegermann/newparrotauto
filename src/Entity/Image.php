@@ -21,7 +21,7 @@ class Image
     #[ORM\Column(type: 'string', length: 255, nullable: true)]
     private ?string $fileName = null;
 
-    #[ORM\ManyToOne(targetEntity: Car::class, inversedBy: 'images')]
+    #[ORM\ManyToOne(inversedBy: 'images')]
     private ?Car $car = null;
 
     public function getFile(): ?File
@@ -29,7 +29,7 @@ class Image
         return $this->file;
     }
 
-    public function setFile(?File $file): self
+    public function setFile(?File $file): static
     {
         $this->file = $file;
 
@@ -41,7 +41,7 @@ class Image
         return $this->fileName;
     }
 
-    public function setFileName(?string $fileName): self
+    public function setFileName(?string $fileName): static
     {
         $this->fileName = $fileName;
 
@@ -57,7 +57,7 @@ class Image
         return $this->size;
     }
 
-    public function setSize(?int $size): self
+    public function setSize(?int $size): static
     {
         $this->size = $size;
 
@@ -69,13 +69,12 @@ class Image
         return $this->car;
     }
 
-    public function setCar(?Car $car): self
+    public function setCar(?Car $car): static
     {
         $this->car = $car;
 
         return $this;
     }
-
 
     public function __toString(): string
     {

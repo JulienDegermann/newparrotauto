@@ -1,17 +1,24 @@
-<div class="card">
-  <img src="./uploads/images/vehicules/test.jpg" alt="photo de {{ car.model }}" />
-  <div class="cardShadow">
-    <div class="flex">
-      <div>
-        <h3>{{ car.model|upper }}</h3>
-        <p>{{ car.mileage }} kms</p>
-        {# <p>{{ car.circulationDate|date('d/m/Y', 'Europe/Paris') }}</p> #}
-      </div>
+<a href="{{ path('app_vehicule_show', { id: car.id } )}}">
+  <div class="card">
+    {% if car.images is not empty %}
+      <img 
+        src="{{ asset('uploads/images/vehicules/' ~ car.images[0].getFileName) }}" 
+        alt="photo de {{ car.model }}" />
+    {% else %}
+      <img src="{{ asset('assets/images/no-image.jpeg') }}" alt="image par défaut" />
+    {% endif %}    
+    <div class="cardShadow">
+      <div class="flex">
+        <div>
+          <h3>{{ car.model|upper }}</h3>
+          <p>{{ car.energy|capitalize }}, {{ car.mileage }} kms</p>          
+          <p>{{ car.circulationDate|date('Y', 'Europe/Paris') }}</p>
+        </div>
 
-      <div class="price">
-        <p>{{ car.price }} €</p>
+        <div class="price">
+          <p>{{ car.price }} €</p>
+        </div>
       </div>
-      {# <a href="{{ path('vehicule_show', { id: car.id }) }}" class="button outlined">Voir la fiche</a> #}
     </div>
   </div>
-</div>
+</a>

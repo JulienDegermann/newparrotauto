@@ -21,8 +21,8 @@ class ImageCrudController extends AbstractCrudController
     {
         return [
             ImageField::new('fileName', 'Image')
-                ->setUploadDir('public/uploads/images/')
-                ->setBasePath('uploads/images/'),
+                ->setUploadDir('public/uploads/images/vehicules')
+                ->setBasePath('uploads/images'),
             TextField::new('file', 'image')
                 ->hideOnForm(),
         ];

@@ -16,6 +16,9 @@ class CarRepository extends ServiceEntityRepository
         parent::__construct($registry, Car::class);
     }
 
+    /**
+     * @return Car[] Returns array of Car objects
+     */
     public function getAllCars(): array
     {
         return $this->createQueryBuilder('c')
@@ -23,6 +26,18 @@ class CarRepository extends ServiceEntityRepository
             ->getQuery()
             ->getResult();
     }
+
+    public function findCarById($id): ?Car
+    {
+        return $this->createQueryBuilder('c')
+            ->leftJoin('c.images' , 'i')
+            ->leftJoin('c.equipments' , 'e')
+            ->andWhere('c.id = :id')
+            ->setParameter('id', $id)
+            ->getQuery()
+            ->getOneOrNullResult();
+        }
+
 
     //    /**
     //     * @return Car[] Returns an array of Car objects
