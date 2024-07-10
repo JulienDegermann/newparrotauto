@@ -6,14 +6,13 @@
 {% block body %}
   <section id="cars">
     <div class="container">
-      
       <h2 class="sectionTitle">nos véhicules d'occasions</h2>
       <div class="grid">
         {% for car in cars %}
           {% include '_partials/_vehicules/_card.html.twig' %}
         {% endfor %}
-
       </div>
+      {{ knp_pagination_render(cars, '/_partials/_layout/_pagination.html.twig') }}
     </div>
   </section>
 {% endblock %}

@@ -1,0 +1,21 @@
+.pagination {
+  justify-content: center;
+  color: var(--DARK_75);
+}
+
+.page-item {
+  &.active {
+    color: var(--PRIMARY);
+    font-weight: bold;
+  }
+
+  a {
+    padding: 1rem;
+    font-weight: bold;
+    border: 1px solid transparent;
+
+    &:hover {
+      border: 1px solid var(--DARK_75);
+    }
+  }
+}
