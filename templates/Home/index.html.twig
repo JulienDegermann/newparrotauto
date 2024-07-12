@@ -6,12 +6,12 @@
   <link rel="stylesheet" href="node_modules/@glidejs/glide/dist/css/glide.theme.min.css" />
 {% endblock %}
 
-{% block scripts %}
-{% endblock %}
-
 {% block body %}
   {% include '_partials/_home/_heroBanner.html.twig' %}
   {% include '_partials/_home/_comments.html.twig' %}
+{% endblock %}
+{% block scripts %}
+  <script src="{{ asset('assets/scripts/home/heroBanner.js') }}"></script>
 {% endblock %}
 
 

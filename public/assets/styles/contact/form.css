@@ -1,0 +1,65 @@
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: 0 auto;
+  max-width: 800px;
+  padding: 1em;
+
+  textarea {
+    resize: vertical;
+  }
+
+  select,
+  input,
+  textarea {
+    margin-bottom: 1em;
+    margin-top: .25rem;
+    padding: .5rem .5rem;
+    border: 1px solid transparent;
+    outline: none;
+
+    &:focus {
+      border: 1px solid var(--PRIMARY);
+    }
+  }
+
+  .CTA {
+    margin-top: 1rem;
+    font-weight: bold;
+    font-size: 1.3rem;
+    margin-left: 50%;
+    transform: translateX(-50%);
+
+    &:hover {
+      transform: translateX(-50%) scale(1.1);
+      scale: 1;
+    }
+  }
+
+  .w-50>.formInput {
+    width: 49%;
+    display: inline-block;
+
+    * {
+      width: 100%;
+      display: inline-block;
+    }
+  }
+
+  .formInput {
+    position: relative;
+
+    /* margin-bottom: 3rem; */
+    * {
+      width: 100%;
+    }
+
+    .errors {
+      color: var(--ERROR);
+      position: absolute;
+      top: 100%;
+      left: 0;
+    }
+  }
+}

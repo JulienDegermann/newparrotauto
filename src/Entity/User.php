@@ -12,6 +12,7 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: UserRepository::class)]
 #[ORM\UniqueConstraint(name: 'UNIQ_IDENTIFIER_EMAIL', fields: ['email'])]
@@ -21,7 +22,26 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     use IdTrait;
     use DatesTrait;
 
-    #[ORM\Column(length: 180)]
+    #[ORM\Column(type: 'string', length: 255, nullable: true)]
+    #[Assert\Sequentially([
+        new Assert\NotBlank(
+            message: 'Le champ est obligatoire.'
+        ),
+        new Assert\Type(
+            type: 'string',
+            message: 'Le champ doit être une chaîne de caractères.'
+        ),
+        new Assert\Length(
+            min: 4,
+            max: 255,
+            minMessage: 'Le champ doit contenir au moins {{ limit }} caractères.',
+            maxMessage: 'Le champ doit contenir au maximum {{ limit }} caractères.'
+        ),
+        new Assert\Regex(
+            pattern: '/^((?!\.)[\w\-_.]*[^.])(@\w+)(\.\w+(\.\w+)?[^.\W])$/',
+            message: 'E-mail non valide.'
+        )
+    ])]
     private ?string $email = null;
 
     /**
@@ -37,20 +57,86 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private ?string $password = null;
 
     #[ORM\Column(type: 'string', length: 255)]
+    #[Assert\Sequentially([
+        new Assert\NotBlank(
+            message: 'Le champ est obligatoire.'
+        ),
+        new Assert\Type(
+            type: 'string',
+            message: 'Le champ doit être une chaîne de caractères.'
+        ),
+        new Assert\Length(
+            min: 2,
+            max: 255,
+            minMessage: 'Le champ doit contenir au moins {{ limit }} caractères.',
+            maxMessage: 'Le champ doit contenir au maximum {{ limit }} caractères.'
+        ),
+        new Assert\Regex(
+            pattern: '/^[a-zA-Z\s\-\p{L}]{2,255}$/u',
+            message: 'Ce champ contient des caractères non autorisés.'
+        )
+    ])]
     private ?string $firstName = null;
 
     #[ORM\Column(type: 'string', length: 255)]
+    #[Assert\Sequentially([
+        new Assert\NotBlank(
+            message: 'Le champ est obligatoire.'
+        ),
+        new Assert\Type(
+            type: 'string',
+            message: 'Le champ doit être une chaîne de caractères.'
+        ),
+        new Assert\Length(
+            min: 2,
+            max: 255,
+            minMessage: 'Le champ doit contenir au moins {{ limit }} caractères.',
+            maxMessage: 'Le champ doit contenir au maximum {{ limit }} caractères.'
+        ),
+        new Assert\Regex(
+            pattern: '/^[a-zA-Z\s\-\p{L}]{2,255}$/u',
+            message: 'Ce champ contient des caractères non autorisés.'
+        )
+    ])]
     private ?string $lastName = null;
 
     #[ORM\Column(type: 'date', nullable: true)]
+    #[Assert\Sequentially([
+        new Assert\Type(
+            type: \DateTimeImmutable::class,
+            message: 'Le champ doit être une date.'
+        ),
+        new Assert\LessThanOrEqual(
+            value: 'now',
+            message: 'La date doit être antérieure ou égale à la date actuelle.'
+        )
+    ])]
     private ?DateTime $birthDate = null;
 
+
     #[ORM\Column(type: 'string', length: 255, nullable: true)]
+    #[Assert\Sequentially([
+        new Assert\Type(
+            type: 'string',
+            message: 'Le champ doit être une chaîne de caractères.'
+        ),
+        new Assert\Length(
+            min: 10,
+            max: 12,
+            minMessage: 'Le champ doit contenir au moins {{ limit }} caractères.',
+            maxMessage: 'Le champ doit contenir au maximum {{ limit }} caractères.'
+        ),
+        new Assert\Regex(
+            pattern: '/^(?:(?:\+|00)33[\s.-]{0,3}(?:\(0\)[\s.-]{0,3})?|0)[1-9](?:(?:[\s.-]?\d{2}){4}|\d{2}(?:[\s.-]?\d{3}){2,})$/',
+            message: 'Numéro de téléphone non valide.'
+        )
+    ])]
     private ?string $phone = null;
 
     #[ORM\OneToMany(
-        targetEntity: Car::class, 
-        mappedBy: 'author')]
+        targetEntity: Car::class,
+        mappedBy: 'author'
+    )]
     private Collection $cars;
 
     #[ORM\ManyToOne(targetEntity: Store::class, inversedBy: 'employees')]
@@ -254,7 +340,8 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     }
 
 
-    public function __construct() {
+    public function __construct()
+    {
         $this->roles = ['ROLE_USER'];
         $this->cars = new ArrayCollection();
         $this->messages = new ArrayCollection();

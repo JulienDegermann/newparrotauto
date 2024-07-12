@@ -18,7 +18,7 @@ svg {
 }
 
 .fill svg {
-  fill: var(--SECONDARY);
+  fill: var(--PRIMARY);
 }
 
 .empty svg {

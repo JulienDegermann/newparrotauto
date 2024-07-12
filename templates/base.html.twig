@@ -1,15 +1,12 @@
 <!DOCTYPE html>
 <html>
-  <header>
+  <head>
     {% include './_partials/_layout/_head.html.twig' %}
     {% block stylesheets %}
       {# custom stylesheets #}
     {% endblock %}
     {{ encore_entry_script_tags('app') }}
-    {% block scripts %}
-      {# custom scripts #}
-    {% endblock %}
-  </header>
+  </head>
 
   <header id="header">
     {% include './_partials/_layout/_header.html.twig' %}
@@ -23,7 +20,8 @@
   <footer id="footer">
     {% include './_partials/_layout/_footer.html.twig' %}
   </footer>
-  
 
-
+  {% block scripts %}
+    {# custom scripts #}
+  {% endblock %}
 </html>

@@ -11,18 +11,23 @@
 }
 
 .outlined {
-  border: 2px solid var(--DARK);
-  color: var(--DARK);
+  border: 2px solid var(--DARK_75);
+  color: var(--DARK_75);
+  
+  &:hover {
+    border: 2px solid var(--PRIMARY);
+    color: var(--PRIMARY);
+  }
 }
 
 .filled {
-  background: var(--DARK);
+  background: var(--DARK_75);
   color: var(--PRIMARY);
 }
 
 .CTA {
   background: var(--PRIMARY);
-  color: var(--DARK);
+  color: var(--DARK_75);
   text-transform: uppercase;
   border: none;
 
@@ -32,12 +37,12 @@
 }
 
 .link {
-  color: var(--DARK);
+  color: var(--DARK_75);
   text-transform: uppercase;
   font-size: 0.9rem;
   display: inline-block;
 
   &:hover {
-    color: var(--PRIMARY);
+    color: var(--PRIMARY)!important;
   }
 }

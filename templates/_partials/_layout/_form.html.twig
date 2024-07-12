@@ -1,0 +1,49 @@
+<div class="form">
+  <h3>formulaire de contact</h3>
+  {{ form_start(form) }}
+  <div class="w-50">
+    <div class="formInput">
+      {{ form_label(form.author.firstName) }}
+      {{ form_widget(form.author.firstName) }}
+      {% if form_errors(form.author.firstName) is not empty %}
+        <div class="errors">
+          {{ form_errors(form.author.firstName) }}
+        </div>
+      {% endif %}
+    </div>
+    <div class="formInput">
+      {{ form_label(form.author.lastName) }}
+      {{ form_widget(form.author.lastName) }}
+      {% if form_errors(form.author.lastName) is not empty %}
+        <div class="errors">{{ form_errors(form.author.lastName) }}</div>
+      {% endif %}
+    </div>
+  </div>
+  <div class="w-50">
+    <div class="formInput">
+      {{ form_label(form.author.email) }}
+      {{ form_widget(form.author.email) }}
+      {% if form_errors(form.author.email) is not empty %}
+        <div class="errors">{{ form_errors(form.author.email) }}</div>
+      {% endif %}
+
+      {# {{ form_row(form.author.email, {'attr': {'class': 'form-control'} }) }} #}
+    </div>
+    <div class="formInput">
+      {{ form_label(form.author.phone) }}
+      {{ form_widget(form.author.phone) }}
+      {% if form_errors(form.author.phone) is not empty %}
+        <div class="errors">{{ form_errors(form.author.phone) }}</div>
+      {% endif %}
+    </div>
+  </div>
+  <div class="formInput">
+    {{ form_label(form.text) }}
+    {{ form_widget(form.text) }}
+    {% if form_errors(form.text) is not empty %}
+      <div class="errors">{{ form_errors(form.text) }}</div>
+    {% endif %}
+  </div>
+  {{ form_row(form.submit) }}
+  {{ form_end(form) }}
+</div>

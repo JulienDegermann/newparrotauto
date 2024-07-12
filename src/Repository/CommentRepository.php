@@ -15,7 +15,16 @@ class CommentRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, Comment::class);
     }
+    public function findApprovedComments(): array
+    {
+        return $this->createQueryBuilder('c')
+        ->andWhere('c.published = :approved')
+        ->setParameter('approved', true)
+        ->orderBy('c.createdAt', 'DESC')
+        ->getQuery()
+        ->getResult();
 
+    }
     //    /**
     //     * @return Comment[] Returns an array of Comment objects
     //     */

@@ -2,11 +2,12 @@
 
 namespace App\Entity;
 
-use App\Repository\OpeningRepository;
-use App\Traits\Entities\DatesTrait;
-use App\Traits\Entities\IdTrait;
 use Doctrine\DBAL\Types\Types;
+use App\Traits\Entities\IdTrait;
 use Doctrine\ORM\Mapping as ORM;
+use App\Traits\Entities\DatesTrait;
+use App\Repository\OpeningRepository;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 #[ORM\Entity(repositoryClass: OpeningRepository::class)]
 class Opening
@@ -15,12 +16,15 @@ class Opening
     use DatesTrait;
     
     #[ORM\Column(length: 255)]
+    #[Groups(['storeUpdate'])]
     private ?string $day = null;
 
     #[ORM\Column(type: Types::TIME_MUTABLE)]
+    #[Groups(['storeUpdate'])]
     private ?\DateTimeInterface $open = null;
 
     #[ORM\Column(type: Types::TIME_MUTABLE)]
+    #[Groups(['storeUpdate'])]
     private ?\DateTimeInterface $close = null;
 
     #[ORM\ManyToOne(inversedBy: 'openings')]

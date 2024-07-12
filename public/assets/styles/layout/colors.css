@@ -2,7 +2,9 @@
   /* colors */
   --PRIMARY: #FFC107;
   --SECONDARY: #FF9800;
-  --TERTIARY: #FF5722;
+  --ERROR: #F44336;
+  --SUCCESS: #4CAF50;
+  --INFO: #03A9F4;
   --DARK: #212121;
   --LIGHT: #F5F5F5;
   
@@ -14,7 +16,7 @@
   /* gradients */
   --GRADIENT_PRIMARY_DARK: radial-gradient(var(--PRIMARY) 0%, var(--DARK) 140%);
   --GRADIENT_LIGHT_DARK: radial-gradient(var(--LIGHT) 0%, var(--PRIMARY) 140%);
-  --GRADIENT_LIGHT_LIGHT_00: linear-gradient(180deg, var(--LIGHT) 10%, var(--LIGHT_00) 90%);
+  --GRADIENT_LIGHT_LIGHT_00: linear-gradient(180deg, var(--LIGHT) 60%, var(--LIGHT_00) 90%);
 
   /* box shadows colors */
   --SHADOW_LIGHT_INSET: 0 0 12px 6px var(--LIGHT) inset;

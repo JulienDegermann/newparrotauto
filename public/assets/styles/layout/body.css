@@ -22,7 +22,10 @@ html {
 a {
   width: auto;
   color: inherit;
+}
 
+p {
+  line-height: 2;
 }
 
 /* new default styles */
@@ -36,6 +39,10 @@ body {
 /* section */
 section {
   padding: 8rem 0;
+
+  &:first-of-type {
+    padding-top: 2rem;
+  }
 }
 
 .container {

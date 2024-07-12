@@ -1,0 +1,59 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+  <link rel="stylesheet" href="{{ asset('assets/styles/contact/styles.css') }}" />
+{% endblock %}
+
+{% block body %}
+  <section id="contact">
+    <div class="container">
+      <h2 class="sectionTitle">besoin d'informations ? c'est ici</h2>
+      <div class="flex">
+        <div id="globalInfos" class="flex">
+          <div id="companyInfo">
+            <h3>nous sommes …</h3>
+            <p>{{ company.text }}</p>
+          </div>
+          <div id="storeInfo">
+            <h3>… près de chez vous</h3>
+            <form>
+              <label for="storeSelect">Sélectionner un garage :</label>
+            <p>
+              <select id="storeSelect">
+                {% for store in stores %}
+                <option {% if store.city|lower is same as params %} selected {% endif %} value="{{ store.city|lower }}">{{ store.city }}</option>
+                {% endfor %}
+              </select>
+            </form>
+            <div id="storeSelected">
+              <div class="store">
+                <h4>{{ store.city|upper }}</h4>
+                <p>📍 : {{ store.address }}</p>
+                <p>
+                  📞 : <a class="link" href="tel:{{ store.phone }}">{{ store.phone }}</a>
+                </p>
+
+                <h5>Horaires d'ouverture :</h5>
+
+                <ul>
+                  {% for key, openings in store.openings %}
+                    <li>
+                      {{ key }} :{% for opening in openings %}
+                        {{ opening[0]|date('H:i') }} - {{ opening[1]|date('H:i') }}{% if not loop.last %} // {% endif %}
+                      {% endfor %}
+                    </li>
+                  {% endfor %}
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        {# contact form #}
+        {% include '_partials/_layout/_form.html.twig' %}
+      </div>
+    </div>
+  </section>
+{% endblock %}
+{% block scripts %}
+  <script src="{{ asset('assets/scripts/contact/store.js') }}"></script>
+{% endblock %}

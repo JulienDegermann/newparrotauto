@@ -8,6 +8,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\BooleanField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\DateTimeField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextareaField;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
+use EasyCorp\Bundle\EasyAdminBundle\Field\IntegerField;
 
 class CommentCrudController extends AbstractCrudController
 {
@@ -20,11 +21,10 @@ class CommentCrudController extends AbstractCrudController
     {
         return [
             DateTimeField::new('createdAt', 'Créé le'),
-            DateTimeField::new('updatedAt', 'Modifié le'),
             TextField::new('name', 'Auteur'),
             TextareaField::new('text', 'Commentaire'),
             BooleanField::new('published', 'Publié'),
-            
+            IntegerField::new('note', 'Note')
         ];
     }
 }

@@ -1,7 +1,6 @@
 /* global styles */
 @import './layout/colors.css';
 @import './layout/fonts.css';
-@import './layout/default.css';
 
 /* layout */
 @import './layout/header.css';

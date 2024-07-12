@@ -19,12 +19,12 @@ trait NameTrait
     new Assert\Length(
       min: 2,
       max: 255,
-      minMessage: 'Le champ doit contenir au moins {{ min }} caractères.',
-      maxMessage: 'Le champ doit contenir au maximum {{ max }} caractères.'
+      minMessage: 'Le champ doit contenir au moins {{ limit }} caractères.',
+      maxMessage: 'Le champ doit contenir au maximum {{ limit }} caractères.'
     ),
     new Assert\Regex(
       pattern: '/^[a-zA-Z0-9\s\-\p{L}]{2,255}$/u',
-      message: 'Ce champ contient des caractères non autorisés.'
+      message: 'Le champ contient des caractères non autorisés.'
   )
   ])]
   private ?string $name = null;

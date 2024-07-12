@@ -10,6 +10,7 @@ use App\Repository\StoreRepository;
 use App\Traits\Entities\DatesTrait;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\Common\Collections\ArrayCollection;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 #[ORM\Entity(repositoryClass: StoreRepository::class)]
 class Store
@@ -18,9 +19,11 @@ class Store
     use DatesTrait;
 
     #[ORM\Column]
+    #[Groups(['storeUpdate'])]
     private ?string $address = null;
 
     #[ORM\Column(type: 'string', length: 255, nullable: true)]
+    #[Groups(['storeUpdate'])]
     private ?string $phone = null;
 
     #[ORM\ManyToOne(inversedBy: 'stores')]
@@ -30,14 +33,18 @@ class Store
     private ?Collection $employees;
 
     #[ORM\Column(type: 'string', length: 255, nullable: true)]
+    #[Groups(['storeUpdate'])]
     private ?string $city;
 
     #[ORM\OneToMany(
         targetEntity: Opening::class,
         mappedBy: 'store',
         cascade: ['persist', 'remove'],
-        orphanRemoval: true
+        orphanRemoval: true,
+        fetch: 'EAGER'
+   
     )]
+    #[Groups(['storeUpdate'])]
     private Collection $openings;
 
     public function getAddress(): ?string

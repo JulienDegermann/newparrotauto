@@ -18,7 +18,7 @@ trait TextTrait
     ),
     new Assert\Length(
       min: 2,
-      minMessage: 'Le champ doit contenir au moins {{ min }} caractères.',
+      minMessage: 'Le champ doit contenir au moins {{ limit }} caractères.',
     ),
     new Assert\Regex(
       pattern: '/^[a-zA-Z0-9\s\.\,\'\-\p{L}]{2,}$/u',
