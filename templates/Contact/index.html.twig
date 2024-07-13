@@ -16,36 +16,11 @@
           </div>
           <div id="storeInfo">
             <h3>… près de chez vous</h3>
-            <form>
-              <label for="storeSelect">Sélectionner un garage :</label>
-            <p>
-              <select id="storeSelect">
-                {% for store in stores %}
-                <option {% if store.city|lower is same as params %} selected {% endif %} value="{{ store.city|lower }}">{{ store.city }}</option>
-                {% endfor %}
-              </select>
-            </form>
-            <div id="storeSelected">
-              <div class="store">
-                <h4>{{ store.city|upper }}</h4>
-                <p>📍 : {{ store.address }}</p>
-                <p>
-                  📞 : <a class="link" href="tel:{{ store.phone }}">{{ store.phone }}</a>
-                </p>
-
-                <h5>Horaires d'ouverture :</h5>
-
-                <ul>
-                  {% for key, openings in store.openings %}
-                    <li>
-                      {{ key }} :{% for opening in openings %}
-                        {{ opening[0]|date('H:i') }} - {{ opening[1]|date('H:i') }}{% if not loop.last %} // {% endif %}
-                      {% endfor %}
-                    </li>
-                  {% endfor %}
-                </ul>
-              </div>
-            </div>
+            
+            
+            {# debut #}
+{% include '_partials/_layout/_openings.html.twig' %}
+            {# fin #}
           </div>
         </div>
         {# contact form #}
@@ -53,7 +28,4 @@
       </div>
     </div>
   </section>
-{% endblock %}
-{% block scripts %}
-  <script src="{{ asset('assets/scripts/contact/store.js') }}"></script>
 {% endblock %}

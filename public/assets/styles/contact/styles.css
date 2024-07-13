@@ -21,28 +21,6 @@
 #storeInfo {
   margin-top: 2rem;
 
-  .store {
-    padding: 2rem;
-    border: 2px solid var(--DARK_75);
-    width: max-content;
-    margin: auto;
-
-    h4 {
-      margin-bottom: .5rem;
-    }
-
-    h5 {
-      margin: .5rem 0;
-    }
-
-    li {
-      line-height: 1.5;
-    }
-
-    /* p {
-      margin: .5rem 0;
-    } */
-  }
 }
 
 h3 {

@@ -1,7 +1,8 @@
+@import '../variables.css';
+
 #footer .navLink:hover {
   scale: none;
 }
-
 
 #footer {
   background: var(--LIGHT);
@@ -24,7 +25,12 @@
   }
 }
 
+#footer .store {
+  margin: 0;
+  border: none;
+  padding: 2rem 0;
+}
+
 #footer .link {
   text-transform: lowercase;
-  padding: .5rem;
 }

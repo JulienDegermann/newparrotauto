@@ -4,11 +4,10 @@ namespace App\Controller;
 
 use App\Entity\Message;
 use App\Form\ContactType;
-use Doctrine\ORM\EntityManager;
-use Doctrine\ORM\Mapping\Entity;
 use App\Repository\UserRepository;
 use App\Repository\StoreRepository;
 use App\Repository\CompanyRepository;
+use App\Traits\Pages\DatasTrait;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -19,6 +18,8 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 
 class ContactController extends AbstractController
 {
+    use DatasTrait;
+
     #[Route('/contact', name: 'app_contact')]
     public function index(
         Request $request,
@@ -27,42 +28,53 @@ class ContactController extends AbstractController
         UserRepository $userRepository,
         EntityManagerInterface $em,
         SerializerInterface $serializer
-    ): Response {
+    ): Response | JsonResponse {
 
-        // get datas from database (company and stores)
-        $compagny = $companyRepository->findAll()[0];
+        $datas = $this->getDatas($request, $storeRepository, $companyRepository, $serializer);
+        if ($request->query->get('store')) {
+            return $datas;
+        }
+        $storeExport = $datas['storeExport'];
+        $allStores = $datas['allStores'];
+        $params = $datas['params'];
+        $compagny = $datas['company'];
 
-        // find a param in url
-        $params = $request->query->get('store');
 
-        // if(!$params) {
-        //     $params = 'toulouse';
+
+        // // get datas from database (company and stores)
+        // $compagny = $companyRepository->findAll()[0];
+
+        // // find a param in url
+        // $params = $request->query->get('store');
+
+        // // if(!$params) {
+        // //     $params = 'toulouse';
+        // // }
+        // $store = $storeRepository->findOneBy(['city' => $params ?? 'Sulniac']);;
+        // $allStores = $storeRepository->findAll();
+
+        // // format data to be used in the view
+        // $storeExport = [];
+        // $opens = $store->getOpenings();
+        // $openSorted = [];
+        // foreach ($opens as $open) {
+        //     if (!array_key_exists($open->getDay(), $openSorted)) {
+        //         $openSorted[$open->getDay()] = [];
+        //     }
+        //     $openSorted[$open->getDay()][] = [$open->getOpen(), $open->getClose()];
         // }
-        $store = $storeRepository->findOneBy(['city' => $params ?? 'Sulniac']);;
-        $allStores = $storeRepository->findAll();
+        // $opens = $openSorted;
+        // $storeExport['openings'] = $opens;
+        // $storeExport['address'] = $store->getAddress();
+        // $storeExport['phone'] = $store->getPhone();
+        // $storeExport['city'] = $store->getCity();
 
-        // format data to be used in the view
-        $storeExport = [];
-        $opens = $store->getOpenings();
-        $openSorted = [];
-        foreach ($opens as $open) {
-            if (!array_key_exists($open->getDay(), $openSorted)) {
-                $openSorted[$open->getDay()] = [];
-            }
-            $openSorted[$open->getDay()][] = [$open->getOpen(), $open->getClose()];
-        }
-        $opens = $openSorted;
-        $storeExport['openings'] = $opens;
-        $storeExport['address'] = $store->getAddress();
-        $storeExport['phone'] = $store->getPhone();
-        $storeExport['city'] = $store->getCity();
-
-        if ($params) {
-            if ($store) {
-                $data = $serializer->serialize($storeExport, 'json', ['groups' => 'storeUpdate']);
-                return new JsonResponse($data, 200, ['Content-Type' => 'application/json'], true);
-            }
-        }
+        // if ($params) {
+        //     if ($store) {
+        //         $data = $serializer->serialize($storeExport, 'json', ['groups' => 'storeUpdate']);
+        //         return new JsonResponse($data, 200, ['Content-Type' => 'application/json'], true);
+        //     }
+        // }
 
         $message = new Message();
         $form = $this->createForm(ContactType::class, $message);

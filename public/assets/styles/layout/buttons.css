@@ -39,7 +39,6 @@
 .link {
   color: var(--DARK_75);
   text-transform: uppercase;
-  font-size: 0.9rem;
   display: inline-block;
 
   &:hover {

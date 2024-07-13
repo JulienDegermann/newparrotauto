@@ -3,21 +3,37 @@
 namespace App\Controller;
 
 use App\Repository\CommentRepository;
+use App\Repository\CompanyRepository;
 use App\Repository\StoreRepository;
+use App\Traits\Pages\DatasTrait;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Serializer\SerializerInterface;
 
 class HomeController extends AbstractController
 {
+    use DatasTrait;
+
     #[Route('/', name: 'app_home')]
     public function index(
+        Request $request,
         CommentRepository $commentRepository,
-        StoreRepository $storeRepository
+        StoreRepository $storeRepository,
+        SerializerInterface $serializer,
+        CompanyRepository $companyRepository
     ): Response {
 
+
+        $datas = $this->getDatas($request, $storeRepository, $companyRepository, $serializer);
+        $storeExport = $datas['storeExport'];
+        $stores = $datas['allStores'];
+        $params = $datas['params'];
+        $compagny = $datas['company'];
+
+
         // get datas from database (company and stores)
-        $stores = $storeRepository->findAll();
         $comments = $commentRepository->findApprovedComments();
 
         // dd($comments);
@@ -43,7 +59,10 @@ class HomeController extends AbstractController
             'comments' => $comments,
             'services' => $services,
             'comments' => $comments,
-            'stores' => $stores
+            'stores' => $stores,
+            'store' => $storeExport,
+            'params' => $params,
+            'company' => $compagny
         ]);
     }
 }

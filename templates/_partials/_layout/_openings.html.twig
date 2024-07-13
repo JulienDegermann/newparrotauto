@@ -1,0 +1,31 @@
+
+  <div class="store">
+    <form>
+      <label for="storeSelect"></label>
+      <select id="storeSelect" class="storeSelect">
+        {% for store in stores %}
+          {% if store.city|lower is same as params %}
+            <option selected value="{{ store.city|lower }}">{{ store.city }}</option>
+            {% else %}
+            <option value="{{ store.city|lower }}">{{ store.city }}</option>
+          {% endif %}
+        {% endfor %}
+      </select>
+    </form>
+    <div id="storeSelected" class="storeSelected">
+    {# <h4>{{ store.city|upper }}</h4> #}
+    <p>📍 : {{ store.address }} <br>
+      📞 : <a class="link" href="tel:{{ store.phone }}">{{ store.phone }}</a>
+    </p>
+    <h5>Horaires d'ouverture :</h5>
+    <ul>
+      {% for key, openings in store.openings %}
+        <li>
+          {{ key }} :{% for opening in openings %}
+            {{ opening[0]|date('H:i') }} - {{ opening[1]|date('H:i') }}{% if not loop.last %} // {% endif %}
+          {% endfor %}
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+</div>
