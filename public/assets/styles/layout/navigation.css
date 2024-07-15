@@ -9,6 +9,11 @@
 .navLink {
   padding: 1rem 2rem;
   color: var(--DARK);
+
+  &.active {
+    color: var(--PRIMARY);
+    font-weight: bold;
+  }
 }
 
 .navLink:hover {

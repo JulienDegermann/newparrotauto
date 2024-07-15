@@ -18,6 +18,7 @@
         "build": "encore production --progress"
     },
     "dependencies": {
-        "@glidejs/glide": "^3.6.2"
+        "@glidejs/glide": "^3.6.2",
+        "glide": "^0.2.0"
     }
 }

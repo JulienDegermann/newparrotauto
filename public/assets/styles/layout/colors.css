@@ -19,6 +19,7 @@
   --GRADIENT_LIGHT_LIGHT_00: linear-gradient(180deg, var(--LIGHT) 60%, var(--LIGHT_00) 90%);
 
   /* box shadows colors */
+  --SHADOW_BIG_LIGHT_INSET: 0 0 12px 16px var(--LIGHT) inset;
   --SHADOW_LIGHT_INSET: 0 0 12px 6px var(--LIGHT) inset;
   --SHADOW_DARK_75_INSET: 0 0 12px 6px var(--DARK_75) inset;
   --SHADOW_LIGHT: 0 0 12px 6px var(--LIGHT);

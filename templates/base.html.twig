@@ -2,10 +2,10 @@
 <html>
   <head>
     {% include './_partials/_layout/_head.html.twig' %}
+      
     {% block stylesheets %}
       {# custom stylesheets #}
     {% endblock %}
-    {{ encore_entry_script_tags('app') }}
   </head>
 
   <header id="header">
@@ -22,6 +22,7 @@
   </footer>
 
   <script src="{{ asset('assets/scripts/global/store.js') }}"></script>
+  {{ encore_entry_script_tags('app') }}
   {% block scripts %}
     {# custom scripts #}
   {% endblock %}

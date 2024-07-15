@@ -4,6 +4,15 @@ const storeSelect = document.getElementById('storeSelect');
 const storeSeletects = document.querySelectorAll('.storeSelect');
 const storesSecleted = document.querySelectorAll('.storeSelected');
 
+const phoneButton = document.getElementById('phoneButton');
+
+
+const updatePhone = store => {
+  console.log(store)
+  phoneButton.innerText= `${store.phone}`
+  phoneButton.href = `tel:${store.phone}`
+}
+
 const url = new URL('/contact', window.location.origin)
 
 // format time to hh:mm
@@ -21,19 +30,18 @@ const formatPlage = (plage) => {
 }
 
 // card template
-const createCard = datas => {
-console.log(datas.openings)
+const createCard = store => {
   return (
     `
       <div class="storeSelected">
         
-        <p>📍 : ${datas.address}</p>
-        <p>📞 : <a class="link" href="tel:${datas.phone}">${datas.phone}</a></p>
+        <p>📍 : ${store.address}</p>
+        <p>📞 : <a class="link" href="tel:${store.phone}">${store.phone}</a></p>
         <h5>Horaires d'ouverture :</h5>
         <ul>
-          ${Object.keys(datas.openings).map(key => {
+          ${Object.keys(store.openings).map(key => {
       return (
-        `<li>${key} : ${datas.openings[key].map(plage => {
+        `<li>${key} : ${store.openings[key].map(plage => {
           return formatPlage(plage)
         }).join(' // ')} </li>`
       )
@@ -61,7 +69,7 @@ const handleChange = async (e) => {
   params.append('store', e.target.value)
   url.search = params.toString()
 
-  const datas = await updateStore(url) 
+  const datas = await updateStore(url)
 
   // delete previous card
   storeSelected.innerHTML = ''
@@ -82,6 +90,9 @@ const handleChange = async (e) => {
   storeSeletects.forEach(select => {
     select.value = e.target.value
   })
+
+  // update phone button header
+  updatePhone(datas)
 
 }
 
