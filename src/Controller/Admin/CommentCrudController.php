@@ -3,6 +3,7 @@
 namespace App\Controller\Admin;
 
 use App\Entity\Comment;
+use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\BooleanField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\DateTimeField;
@@ -15,6 +16,19 @@ class CommentCrudController extends AbstractCrudController
     public static function getEntityFqcn(): string
     {
         return Comment::class;
+    }
+
+
+    public function configureCrud(Crud $crud): Crud
+    {
+        return $crud
+            ->setSearchFields([
+                'name',
+                'email',
+                'created_at',
+            ])
+            ->setEntityLabelInPlural('Messages')
+            ->setEntityLabelInSingular('Message');
     }
 
     public function configureFields(string $pageName): iterable

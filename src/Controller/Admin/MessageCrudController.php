@@ -10,6 +10,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextareaField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
+use EasyCorp\Bundle\EasyAdminBundle\Field\DateTimeField;
 
 class MessageCrudController extends AbstractCrudController
 {
@@ -45,6 +46,7 @@ class MessageCrudController extends AbstractCrudController
     public function configureFields(string $pageName): iterable
     {
         return [
+            DateTimeField::new('created_at', 'Créé le'),
             TextField::new('name', 'Titre'),
             TextareaField::new('text', 'Contenu'),
             AssociationField::new('author', 'Auteur')->hideOnForm(),
