@@ -2,15 +2,17 @@
 
 namespace App\Controller;
 
+use App\Entity\Comment;
+use App\Form\CommentType;
+use App\Traits\Pages\DatasTrait;
+use App\Repository\StoreRepository;
 use App\Repository\CommentRepository;
 use App\Repository\CompanyRepository;
-use App\Repository\StoreRepository;
-use App\Traits\Pages\DatasTrait;
-use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\Routing\Attribute\Route;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Serializer\SerializerInterface;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class HomeController extends AbstractController
 {
@@ -25,18 +27,14 @@ class HomeController extends AbstractController
         CompanyRepository $companyRepository
     ): Response {
 
-
         $datas = $this->getDatas($request, $storeRepository, $companyRepository, $serializer);
         $storeExport = $datas['storeExport'];
         $stores = $datas['allStores'];
         $params = $datas['params'];
         $compagny = $datas['company'];
 
-
         // get datas from database (company and stores)
         $comments = $commentRepository->findApprovedComments();
-
-        // dd($comments);
 
         $services = [
             "occasions" => [
@@ -50,10 +48,21 @@ class HomeController extends AbstractController
             "réparation" => [
                 "image" => "repair.jpg",
                 "details" => "Accrochage, accident ou panne moteur, nous réparons votre véhicule endommagé avec des pièces neuves ou d'occasion."
-
-
             ],
         ];
+
+        $comment = new Comment();
+        $form = $this->createForm(CommentType::class, $comment);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $comment->setPublished(false);
+            $commentRepository->save($comment);
+
+            $this->addFlash('success', 'Votre commentaire a bien été envoyé et sera publié après validation.');
+
+            return $this->redirectToRoute('app_home');
+        }
 
         return $this->render('home/index.html.twig', [
             'comments' => $comments,
@@ -62,7 +71,8 @@ class HomeController extends AbstractController
             'stores' => $stores,
             'store' => $storeExport,
             'params' => $params,
-            'company' => $compagny
+            'company' => $compagny,
+            'form' => $form->createView(),
         ]);
     }
 }

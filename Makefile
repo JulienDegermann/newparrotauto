@@ -9,7 +9,7 @@ db_delete:
 .PHONY: db_delete
 
 db_create:
-	 $(SYMFONY) doctrine:database:create
+	$(SYMFONY) doctrine:database:create
 .PHONY: db_create
 
 new_migration:

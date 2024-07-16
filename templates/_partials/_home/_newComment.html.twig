@@ -1,0 +1,22 @@
+<div id="addComment">
+  {{ form_start(form) }}
+
+  {{ form_label(form.name) }}
+  {{ form_widget(form.name) }}
+  {{ form_errors(form.name) }}
+
+  {{ form_label(form.text) }}
+  {{ form_widget(form.text) }}
+  {{ form_errors(form.text) }}
+
+  <legend>Note</legend>
+  <div class="flex">
+    {% for item in form.note %}
+      <label for="{{ field_name(item) }}">{% include '_partials/_svg/_star.svg' %}</label>
+      <input type="radio" value="{{ field_value(item) }}" name="{{ field_name(item) }}" id="field_name(item)" />
+    {% endfor %}
+  </div>
+  {{ form_errors(form.note) }}
+
+  {{ form_end(form) }}
+</div>
