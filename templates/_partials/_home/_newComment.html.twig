@@ -1,22 +1,31 @@
 <div id="addComment">
   {{ form_start(form) }}
-
-  {{ form_label(form.name) }}
-  {{ form_widget(form.name) }}
-  {{ form_errors(form.name) }}
-
-  {{ form_label(form.text) }}
-  {{ form_widget(form.text) }}
-  {{ form_errors(form.text) }}
-
-  <legend>Note</legend>
-  <div class="flex">
-    {% for item in form.note %}
-      <label for="{{ field_name(item) }}">{% include '_partials/_svg/_star.svg' %}</label>
-      <input type="radio" value="{{ field_value(item) }}" name="{{ field_name(item) }}" id="field_name(item)" />
-    {% endfor %}
+  <div class="formInput">
+    {{ form_label(form.name) }}
+    {% if form_errors(form.name) is not empty %}
+      <div class="errors">{{ form_errors(form.name) }}</div>
+    {% endif %}
+    {{ form_widget(form.name) }}
   </div>
-  {{ form_errors(form.note) }}
+  <div class="formInput">
+    {{ form_label(form.text) }}
+    {% if form_errors(form.text) is not empty %}
+      <div class="errors">{{ form_errors(form.text) }}</div>
+    {% endif %}
+    {{ form_widget(form.text) }}
+  </div>
+  <div class="formInput">
+    <div class="flex">
+      <legend>Note</legend>
+      {% for item in form.note %}
+        <input type="radio" value="{{ field_value(item) }}" name="{{ field_name(item) }}" id="{{ field_value(item) }}" />
+        <label class="stars" for="{{ field_value(item) }}">{% include '_partials/_svg/_star.svg' %}</label>
+      {% endfor %}
+    </div>
+    {% if form_errors(form.note) is not empty %}
+      <div class="errors">{{ form_errors(form.note) }}</div>
+    {% endif %}
+  </div>
 
   {{ form_end(form) }}
 </div>

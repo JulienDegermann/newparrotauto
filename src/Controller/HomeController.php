@@ -56,10 +56,9 @@ class HomeController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $comment->setPublished(false);
             $commentRepository->save($comment);
 
-            $this->addFlash('success', 'Votre commentaire a bien été envoyé et sera publié après validation.');
+            // $this->addFlash('success', 'Votre commentaire a bien été envoyé et sera publié après validation.');
 
             return $this->redirectToRoute('app_home');
         }

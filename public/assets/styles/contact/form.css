@@ -48,7 +48,7 @@ form {
   }
 
   .formInput {
-    position: relative;
+    /* position: relative; */
 
     /* margin-bottom: 3rem; */
     * {
@@ -57,7 +57,7 @@ form {
 
     .errors {
       color: var(--ERROR);
-      position: absolute;
+      /* position: absolute; */
       top: 100%;
       left: 0;
     }

@@ -10,7 +10,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 
 trait DatesTrait
 {
-  #[ORM\Column(type: Types::DATE_IMMUTABLE)]
+  #[ORM\Column(type: Types::DATETIME_IMMUTABLE)]
   #[Assert\Sequentially([
     new Assert\NotBlank(
       message: 'Le champ est obligatoire.'
@@ -26,7 +26,7 @@ trait DatesTrait
   ])]
   private ?DateTimeImmutable $createdAt = null;
 
-  #[ORM\Column(type: Types::DATE_IMMUTABLE)]
+  #[ORM\Column(type: Types::DATETIME_IMMUTABLE)]
   #[Assert\Sequentially([
     new Assert\NotBlank(
       message: 'Le champ obligatoire.'

@@ -21,9 +21,6 @@ class Comment
 
     #[ORM\Column(type: Types::BOOLEAN)]
     #[Assert\Sequentially([
-        // new Assert\NotBlank(
-        //     message: 'Le champ est obligatoire.'
-        // ),
         new Assert\Type(
             type: 'boolean',
             message: 'Le champ doit être un booléen.'
@@ -71,5 +68,16 @@ class Comment
     public function getNote(): ?int
     {
         return $this->note;
+    }
+
+    public function __toString(): string
+    {
+        return $this->getName() . ' ' . $this->getText();
+    }
+
+    public function __construct()
+    {
+        $this->createdAt = new \DateTimeImmutable('now');
+        $this->updatedAt = new \DateTimeImmutable('now');
     }
 }

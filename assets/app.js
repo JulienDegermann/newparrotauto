@@ -9,7 +9,7 @@
 import './styles/app.css';
 import Glide, {Controls} from '@glidejs/glide';
 
-const test = document.querySelector('#commentCarousel')
+// const test = document.querySelector('#commentCarousel')
 
 const commentCarousel = new Glide('#commentCarousel', {
     type: 'carousel',
@@ -32,21 +32,3 @@ const commentCarousel = new Glide('#commentCarousel', {
 });
 
 commentCarousel.mount();
-
-
-
-
-
-
-// autoplay - Change slides after a specified interval
-// touchRatio - Alternate moving distance ratio of swiping and dragging
-// touchAngle - Angle required to activate slides moving
-// animationDuration - Duration of the animation
-// rewind - Allow looping the slider type
-// rewindDuration - Duration of the rewinding animation
-// animationTimingFunc - Easing function for the animation
-// direction - Moving direction mode
-// peek - The value of the future viewports which have to be visible in the current view
-// breakpoints - Collection of options applied at specified media breakpoints
-// classes - Collection of used HTML classes
-// throttle - Throttle costly events
