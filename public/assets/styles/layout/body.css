@@ -7,7 +7,7 @@
   box-sizing: border-box;
   list-style: none;
   text-decoration: none;
-  transition: all .3s;
+  transition: all .5s;
 
   &::selection {
     background: var(--PRIMARY);
@@ -17,6 +17,7 @@
 
 html {
   scroll-behavior: smooth;
+  font-size: 14px;
 }
 
 a {
@@ -33,22 +34,21 @@ body {
   font-family: 'Roboto', sans-serif;
   background-color: var(--LIGHT);
   color: var(--DARK);
-  font-size: 16px;
 }
 
 /* section */
 section {
-  padding: 8rem 0;
+  padding: 8rem 1rem;
+}
 
-  &:first-of-type {
-    padding-top: 2rem;
-  }
+section:first-of-type {
+  padding-top: 2rem;
 }
 
 .container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 1rem;
+  padding: 0 .25rem;
 }
 
 .flex {
@@ -59,4 +59,18 @@ section {
   font-size: 3rem;
   margin-bottom: 2rem;
   color: var(--GRADIENT_PRIMARY_DARK);
+}
+
+@media screen and (min-width: 768px) {
+  .container {
+    padding: 0 1rem;
+  }
+
+  html {
+    font-size: 16px;
+  }
+
+  section {
+    padding: 8rem 0;
+  }
 }

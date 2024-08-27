@@ -1,23 +1,20 @@
 .button {
-  padding: 1rem 2rem;
   border: none;
   border-radius: 0.25rem;
   cursor: pointer;
   display: inline-block;
-
-  &:hover {
-    scale: 1.1;
-  }
+  padding: 1rem 1rem;
 }
 
 .outlined {
   border: 2px solid var(--DARK_75);
+  background: var(--LIGHT);
   color: var(--DARK_75);
-  
-  &:hover {
-    border: 2px solid var(--PRIMARY);
-    color: var(--PRIMARY);
-  }
+}
+
+.outlined:hover {
+  border: 2px solid var(--PRIMARY);
+  color: var(--PRIMARY);
 }
 
 .filled {
@@ -30,18 +27,25 @@
   color: var(--DARK_75);
   text-transform: uppercase;
   border: none;
+}
 
-  &:hover {
-    box-shadow: var(--SHADOW_LIGHT_INSET);    
-  }
+.CTA:hover {
+  scale: 1.1;
+  box-shadow: var(--SHADOW_LIGHT_INSET);
 }
 
 .link {
   color: var(--DARK_75);
   text-transform: uppercase;
   display: inline-block;
+}
 
-  &:hover {
-    color: var(--PRIMARY)!important;
+.link:hover {
+  color: var(--PRIMARY);
+}
+
+@media screen and (min-width: 768px) {
+  .button {
+    padding: 1rem 2rem;
   }
 }

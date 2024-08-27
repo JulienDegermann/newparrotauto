@@ -1,9 +1,3 @@
-@import '../variables.css';
-
-#footer .navLink:hover {
-  scale: none;
-}
-
 #footer {
   background: var(--LIGHT);
   padding: 1rem 2rem;
@@ -17,11 +11,30 @@
   flex-direction: column;
 }
 
+#footer .navList .navLink {
+  padding: .5rem 0;
+  text-transform: uppercase;
+}
+
+#footer .navList .navLink:hover {
+  scale: none;
+}
+
 #footer .flex {
   justify-content: space-between;
+}
 
-  &>div {
-    flex: 1;
+#footer .flex>div {
+  flex: 1;
+}
+
+@media screen and (max-width: 769px) and (orientation: portrait) {
+  #footer .flex {
+    display: block;
+  }
+
+  #footer .flex>div {
+    margin-bottom: 3rem;
   }
 }
 
@@ -33,4 +46,8 @@
 
 #footer .link {
   text-transform: lowercase;
+}
+
+#footer form {
+  margin: 0;
 }

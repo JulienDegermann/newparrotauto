@@ -24,7 +24,7 @@ const formatTime = (dateTimeStr) => {
   return `${hours}:${minutes}`;
 };
 
-//  format openings hours [open - close]
+// format openings hours [open - close]
 const formatPlage = (plage) => {
   return `${formatTime(plage[0])} - ${formatTime(plage[1])}`
 }
@@ -52,6 +52,7 @@ const createCard = store => {
   )
 }
 
+// update store fetch datas function
 const updateStore = async (url) => {
   try {
     const res = await fetch(url, { method: 'GET', headers: { Accept: 'application/json' } });
@@ -63,8 +64,8 @@ const updateStore = async (url) => {
   }
 }
 
+// handle store changing
 const handleChange = async (e) => {
-
   const params = new URLSearchParams()
   params.append('store', e.target.value)
   url.search = params.toString()

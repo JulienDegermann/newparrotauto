@@ -17,6 +17,7 @@
   --GRADIENT_PRIMARY_DARK: radial-gradient(var(--PRIMARY) 0%, var(--DARK) 140%);
   --GRADIENT_LIGHT_DARK: radial-gradient(var(--LIGHT) 0%, var(--PRIMARY) 140%);
   --GRADIENT_LIGHT_LIGHT_00: linear-gradient(180deg, var(--LIGHT) 60%, var(--LIGHT_00) 90%);
+  --GRADIENT_NAVBAR: linear-gradient(180deg, var(--LIGHT) 70%, var(--LIGHT_00) 80%);
 
   /* box shadows colors */
   --SHADOW_BIG_LIGHT_INSET: 0 0 12px 16px var(--LIGHT) inset;

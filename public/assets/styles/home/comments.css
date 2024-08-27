@@ -1,5 +1,10 @@
 #commentCarousel {
   overflow: hidden;
+
+  .flex {
+    justify-content: space-between;
+    align-items: center;
+  }
 }
 
 .glide__slides {
@@ -11,33 +16,33 @@
   padding: 0 1rem;
   width: max-content;
   justify-content: space-between;
+}
 
-  .glide__arrow {
-    padding: .25rem 1rem;
-    margin: .25rem .25rem 0;
-  }
+.glide__arrow {
+  padding: .25rem 1rem;
+  margin: .25rem .25rem 0;
 }
 
 .comment {
   padding: 2rem;
   border-radius: 12px;
+}
 
-  .text {
-    color: var(--DARK_75);
-    font-style: italic;
-    letter-spacing: .05em;
-    line-height: 2em;
-  }
+.comment .text {
+  color: var(--DARK_75);
+  font-style: italic;
+  letter-spacing: .05em;
+  line-height: 2em;
 }
 
 svg {
   width: 30px;
   height: 30px;
   scale: 1;
+}
 
-  path {
-    stroke-width: 50px;
-  }
+svg path {
+  stroke-width: 50px;
 }
 
 .fill svg {
@@ -49,31 +54,43 @@ svg {
   display: inline;
 }
 
-
-
-form { 
+form {
   width: 50%;
+}
 
-  .formInput .flex {
-    align-items: center;
-    width: max-content;
-  }
+form .formInput .flex {
+  align-items: center;
+  width: max-content;
+}
 
-  label svg {
-    cursor: pointer;
-    transition: fill 0s, transform .3s;
+form label svg {
+  cursor: pointer;
+  transition: fill 0s, transform .3s;
+}
 
-    &:hover {
-      transform: scale(1.3)
-    }
-  }
+form label svg:hover {
+  transform: scale(1.3)
+}
 
-  label.active svg {
-    fill: var(--PRIMARY);
-  }
+form label.active svg {
+  fill: var(--PRIMARY);
+}
 
-  input[type='radio'] {
-    opacity: 0;
-    cursor: pointer;
-  }
+form input[type='radio'] {
+  opacity: 0;
+  cursor: pointer;
+  width: auto;
+}
+form input[type='radio']:first-of-type {
+  margin-left: 1rem;
+}
+  
+#addComment {
+  display: none;
+}
+
+#addComment .CTA {
+  margin: 0;
+  margin-top: 2rem;
+  transform: translateX(0);
 }

@@ -4,6 +4,7 @@ form {
   justify-content: space-between;
   margin: 0 auto;
   max-width: 800px;
+  width: 100%;
   padding: 1em;
 
   textarea {
@@ -57,7 +58,7 @@ form {
 
     .errors {
       color: var(--ERROR);
-      /* position: absolute; */
+      position: absolute;
       top: 100%;
       left: 0;
     }

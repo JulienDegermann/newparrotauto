@@ -1,5 +1,5 @@
 #heroBanner {
-  height: 75vh;
+  height: 60vh;
   display: flex;
   padding: 0;
 }
@@ -26,7 +26,6 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
-    z-index: -10;
   }
 
   &.active {
@@ -43,6 +42,7 @@
   width: max-content;
   text-align: right;
   text-transform: uppercase;
+  position: relative;
 }
 
 #heroBanner .service {

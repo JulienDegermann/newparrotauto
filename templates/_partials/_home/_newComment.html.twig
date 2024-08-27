@@ -19,7 +19,7 @@
       <legend>Note</legend>
       {% for item in form.note %}
         <input type="radio" value="{{ field_value(item) }}" name="{{ field_name(item) }}" id="{{ field_value(item) }}" />
-        <label class="stars" for="{{ field_value(item) }}">{% include '_partials/_svg/_star.svg' %}</label>
+        <label class="stars" for="{{ field_value(item) }}">{% include '_partials/_svg/_star.html.twig' %}</label>
       {% endfor %}
     </div>
     {% if form_errors(form.note) is not empty %}

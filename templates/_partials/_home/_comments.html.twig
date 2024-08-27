@@ -3,38 +3,38 @@
     <h2 class="sectionTitle">votre avis compte</h2>
 
     <div id="commentCarousel" class="glide">
-      <div class="glide__arrows" data-glide-el="controls">
-        <button class="glide__arrow button outlined glide__arrow--left" data-glide-dir="<"><</button>
-        <button class="glide__arrow button outlined glide__arrow--right" data-glide-dir=">">></button>
-      </div>
       <div class="glide__track" data-glide-el="track">
         <ul class="glide__slides">
           {% for comment in comments %}
             <li class="glide__slide comment">
-                <h4>👤 {{ comment.name|upper }}</h4>
-                <div class="note">
-                  {% for i in 1..5 %}
-                    {% if i <= comment.note %}
-                      <div class="fill">
-                        {% include '_partials/_svg/_star.svg' %}
-                      </div>
-                    {% else %}
-                      <div class="empty">
-                        {% include '_partials/_svg/_star.svg' %}
-                      </div>
-                    {% endif %}
-                  {% endfor %}
+              <h4>👤 {{ comment.name|upper }}</h4>
+              <div class="note">
+                {% for i in 1..5 %}
+                  {% if i <= comment.note %}
+                    <div class="fill">
+                      {% include '_partials/_svg/_star.html.twig' %}
+                    </div>
+                  {% else %}
+                    <div class="empty">
+                      {% include '_partials/_svg/_star.html.twig' %}
+                    </div>
+                  {% endif %}
+                {% endfor %}
               </div>
-                <p class="text">{{ comment.text }}</p>
+              <p class="text">{{ comment.text }}</p>
             </li>
           {% endfor %}
         </ul>
       </div>
+      <div class="flex">
+        <div class="glide__arrows" data-glide-el="controls">
+          <button class="glide__arrow button outlined glide__arrow--left" data-glide-dir="<"><</button>
+          <button class="glide__arrow button outlined glide__arrow--right" data-glide-dir=">">></button>
+        </div>
+  
+        <button id="newComment" class="button outlined">Ajouter un commentaire</button>
+      </div>
     </div>
-
-    <button class="button outlined">
-      Ajouter un commentaire
-    </button>
-    {% include('_partials/_home/_newComment.html.twig') %}
+    {% include '_partials/_home/_newComment.html.twig' %}
   </div>
 </section>

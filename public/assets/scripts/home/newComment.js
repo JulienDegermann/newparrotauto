@@ -1,6 +1,15 @@
 const stars = document.querySelectorAll('.stars');
 const notes = document.querySelectorAll('input[name="comment[note]"]');
 
+const newComment = document.querySelector('#newComment');
+const addComment = document.querySelector('#addComment');
+
+
+const handleShowForm = () => {
+  addComment.style.display = 'block';
+}
+
+newComment.addEventListener('click', handleShowForm)
 
 /**
  * 
