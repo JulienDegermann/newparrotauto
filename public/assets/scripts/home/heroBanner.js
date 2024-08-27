@@ -5,7 +5,7 @@ const services = document.querySelectorAll('.services')
  * active class toggler on mouse enter
  * @param {Event} e 
  */
-const handleHoverEnter = (e) => {
+const handleHoverEnter = e => {
   services.forEach(service => {
     service.classList.remove('active')
     e.target.classList.add('active')

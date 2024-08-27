@@ -1,67 +1,110 @@
 #heroBanner {
   height: 60vh;
   display: flex;
+  flex-direction: column;
   padding: 0;
 }
 
 #heroBanner .services {
   border: 1px solid var(--LIGHT);
-  border-top-width: 0;
-  border-bottom-width: 0;
-  border-left-width: 2px;
-  border-right-width: 2px;
-  height: 100%;
   transition: all 1s;
   position: relative;
   display: flex;
-  flex-direction: column;
+  flex-direction: column-reverse;
   justify-content: flex-end;
   overflow: hidden;
-  width: 6rem;
+  height: 6rem;
+  width: 100%;
+  border-top-width: 2px;
+  border-bottom-width: 2px;
+  border-left-width: 0;
+  border-right-width: 0;
+}
 
-  img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
+#heroBanner .services img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
 
-  &.active {
-    width: 100%;
-  }
+#heroBanner .services.active {
+  height: calc(100% - 168px);
 }
 
 #heroBanner .services h2 {
   background: var(--PRIMARY);
+  position: relative;
   color: var(--DARK_75);
   padding: 2rem;
-  writing-mode: vertical-rl;
-  height: 100%;
   width: max-content;
-  text-align: right;
   text-transform: uppercase;
-  position: relative;
+  text-align: left;
+  width: 100%;
+  writing-mode: horizontal-tb;
 }
 
 #heroBanner .service {
   position: absolute;
-  bottom: 0;
-  left: 92px;
-  width: calc(100% - 92px);
+  width: 100%;
   padding: 2rem;
-  transform: translateY(100%);
   background: var(--DARK_75);
   color: var(--LIGHT);
   line-height: 2;
+  transform: translateY(-100%);
+  bottom: -100%;
+  bottom: auto;
+  top: 80px;
+  width: 100%;
 }
 
 #heroBanner .services.active .service {
   transform: translateY(0);
+}
 
-  .link {
-    color: var(--LIGHT_75);
-    text-transform: uppercase;
+#heroBanner .services.active .service .link {
+  color: var(--LIGHT_75);
+  text-transform: uppercase;
+}
+
+@media screen and (min-width: 768px) {
+  #heroBanner {
+    flex-direction: row;
+  }
+
+  #heroBanner .services {
+    height: 100%;
+    width: 6rem;
+    border-top-width: 0;
+    border-bottom-width: 0;
+    border-left-width: 2px;
+    border-right-width: 2px;
+  }
+
+  #heroBanner .services h2 {
+    text-align: right;
+    height: 100%;
+    width: 6rem;
+    writing-mode: vertical-rl;
+  }
+
+  #heroBanner .services.active {
+    width: 100%;
+  }
+
+  #heroBanner .service {
+    width: calc(100% - 92px);
+    transform: translateY(0);
+    bottom: 0;
+    bottom: auto;
+    top: 100%;
+    width: 100%;
+    left: 92px;
+  }
+
+  #heroBanner .services.active .service {
+    transform: translateY(-100%);
   }
 }
