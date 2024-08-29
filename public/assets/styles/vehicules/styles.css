@@ -3,15 +3,23 @@
 
 #cars .grid {
   display: grid;
-  grid-template-columns: repeat(1, minmax(300px, 1fr));
+  grid-template-columns: repeat(1, minmax(200px, 400px));
+  justify-content: center;
   grid-template-rows: auto;
-  gap: 2rem;
+  gap: 5rem; 
+}
 
-  @media screen and (min-width: 768px) and (max-width: 1023px) {
+
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  #cars .grid {
     grid-template-columns: repeat(2, minmax(300px, 1fr));
+    gap: 3rem; 
   }
+}
 
-  @media screen and (min-width: 1024px) {
+@media screen and (min-width: 1024px) {
+  #cars .grid {
+    gap: 3rem; 
     grid-template-columns: repeat(3, minmax(300px, 1fr));
   }
 }

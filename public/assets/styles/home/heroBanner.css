@@ -1,3 +1,5 @@
+@import '../animations/animations.css';
+
 #heroBanner {
   height: 60vh;
   display: flex;
@@ -67,9 +69,14 @@
 #heroBanner .services.active .service .link {
   color: var(--LIGHT_75);
   text-transform: uppercase;
+  font-weight: 700;
+  position: relative;
 }
 
-@media screen and (min-width: 768px) {
+
+
+
+@media screen and (min-width: 1024px) {
   #heroBanner {
     flex-direction: row;
   }
@@ -92,6 +99,7 @@
 
   #heroBanner .services.active {
     width: 100%;
+    height: 100%;
   }
 
   #heroBanner .service {
@@ -106,5 +114,24 @@
 
   #heroBanner .services.active .service {
     transform: translateY(-100%);
+  }
+
+  #heroBanner .services.active .service .link::before {
+    content: "";
+    display: block;
+    background: var(--LIGHT_75);
+    width: 0;
+    height: 1px;
+    right: 0;
+    left: auto;
+    transition: all 0.3s ease-in-out;
+    position: absolute;
+    bottom: 0;
+  }
+
+  #heroBanner .services.active .service .link:hover::before {
+    right: auto;
+    left: 0;
+    width: 100%;
   }
 }

@@ -6,61 +6,60 @@ form {
   max-width: 800px;
   width: 100%;
   padding: 1em;
+}
 
-  textarea {
-    resize: vertical;
-  }
+form textarea {
+  resize: vertical;
+}
 
-  select,
-  input,
-  textarea {
-    margin-bottom: 1em;
-    margin-top: .25rem;
-    padding: .5rem .5rem;
-    border: 1px solid transparent;
-    outline: none;
+form select,
+form input,
+form textarea {
+  margin-bottom: 2em;
+  margin-top: .5rem;
+  padding: .5rem .5rem;
+  border: 1px solid transparent;
+  outline: none;
 
-    &:focus {
-      border: 1px solid var(--PRIMARY);
-    }
-  }
+}
 
-  .CTA {
-    margin-top: 1rem;
-    font-weight: bold;
-    font-size: 1.3rem;
-    margin-left: 50%;
-    transform: translateX(-50%);
+form select:focus,
+form input:focus,
+form textarea:focus {
+  border: 1px solid var(--PRIMARY);
+}
 
-    &:hover {
-      transform: translateX(-50%) scale(1.1);
-      scale: 1;
-    }
-  }
+form .CTA {
+  margin-top: 1rem;
+  font-weight: bold;
+  font-size: 1.3rem;
+  /* transform: translateX(-50%); */
+}
 
-  .w-50>.formInput {
+form .CTA:hover {
+  transform: scale(1.1);
+  scale: 1;
+}
+
+@media screen and (min-width: 1024px) {
+  form .w-50>.formInput {
     width: 49%;
     display: inline-block;
-
-    * {
-      width: 100%;
-      display: inline-block;
-    }
   }
+}
 
-  .formInput {
-    /* position: relative; */
+form .w-50>.formInput * {
+  width: 100%;
+  display: inline-block;
+}
 
-    /* margin-bottom: 3rem; */
-    * {
-      width: 100%;
-    }
+form .formInput * {
+  width: 100%;
+}
 
-    .errors {
-      color: var(--ERROR);
-      position: absolute;
-      top: 100%;
-      left: 0;
-    }
-  }
+form .errors {
+  color: var(--ERROR);
+  position: absolute;
+  top: 100%;
+  left: 0;
 }

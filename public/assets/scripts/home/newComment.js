@@ -7,6 +7,8 @@ const addComment = document.querySelector('#addComment');
 
 const handleShowForm = () => {
   addComment.style.display = 'block';
+  addComment.classList.toggle('active');
+  newComment.innerHTML = addComment.classList.contains('active') ? 'Annuler' : "Ajouter un commentaire";
 }
 
 newComment.addEventListener('click', handleShowForm)

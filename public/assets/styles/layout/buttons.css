@@ -1,3 +1,5 @@
+@import '../animations/animations.css';
+
 .button {
   border: none;
   border-radius: 0.25rem;
@@ -44,7 +46,7 @@
   color: var(--PRIMARY);
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 1024px) {
   .button {
     padding: 1rem 2rem;
   }

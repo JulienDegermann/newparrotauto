@@ -1,3 +1,5 @@
+@import '../animations/animations.css';
+
 #header {
   position: sticky;
   top: 0;
@@ -11,10 +13,28 @@ header .container .flex {
   align-items: center;
 }
 
-#header .container #mainTitle {
+#header #mainTitle {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+#header .container #mainTitle h1 {
   color: var(--DARK);
   font-size: 1rem;
   letter-spacing: .5em;
+  text-align: center;
+  width: min-content;
+}
+
+#header .container #mainTitle::before {
+  content: '';
+  height: 50px;
+  width: 50px;
+  background: url('../../images/logo.webp') no-repeat center center;
+  background-size: contain;
+  display: block;
 }
 
 #burgerMenu {
@@ -37,6 +57,7 @@ header .container .flex {
 #header .CTA::before {
   content: '📞';
   margin-right: .5rem;
+  display: inline-block;
 }
 
 #burgerMenu svg {
@@ -58,13 +79,14 @@ header .container .flex {
   transform: rotate(0deg) scale(1);
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 1024px) {
   #header {
     padding: 1rem 2rem;
   }
 
   #header .container #mainTitle {
     padding: 1rem;
+    flex-direction: row;
   }
 
   #burgerMenu {
@@ -72,5 +94,9 @@ header .container .flex {
     background: none;
     border: none;
     outline: none;
+  }
+
+  #header .CTA:hover::before {
+    animation: shake .6s infinite ease-in-out;
   }
 }

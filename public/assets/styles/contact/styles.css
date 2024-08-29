@@ -1,16 +1,19 @@
 @import './form.css';
 
-#contact {
-  .container>.flex>div {
-    flex: 1;
-    padding: 0 2rem;
-  }
+#contact .container>.flex {
+  flex-direction: column;
 }
 
+#contact .container>.flex>div {
+  padding: 0 1rem;
+  /* padding: 0; */
+}
+
+
 #contact h3 {
-  text-align: center;
   text-transform: uppercase;
   font-size: 1.5rem;
+  margin-top: 3rem;
 }
 
 #globalInfos {
@@ -20,9 +23,23 @@
 
 #storeInfo {
   margin-top: 2rem;
-
 }
 
 h3 {
   margin-bottom: 2rem;
+}
+
+@media screen and (min-width: 1024px) {
+  #contact .container>.flex {
+    flex-direction: row;
+  }
+
+  #contact h3 {
+    text-align: center;
+  }
+
+  #contact .container>.flex>div {
+    flex: 1;
+    padding: 0 2rem;
+  } 
 }

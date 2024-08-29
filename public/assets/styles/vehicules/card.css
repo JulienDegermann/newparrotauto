@@ -1,58 +1,68 @@
 #cars .card {
-  /* border: 1px solid var(--DARK_75); */  
   border-radius: 8px;
   width: 100%;
-  height: 350px;
+  height: 250px;
   position: relative;
   overflow: hidden;
+}
 
-  .cardShadow {
-    box-shadow: var(--SHADOW_LIGHT_INSET);
-    position: absolute;
-    z-index: 10;
-    width: 100%;
-    height: 100%;
-    top: 0;
-  }
+#cars .card .cardShadow {
+  box-shadow: var(--SHADOW_LIGHT_INSET);
+  position: absolute;
+  z-index: 10;
+  width: 100%;
+  height: 100%;
+  top: 0;
+}
 
-  img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    position: relative;
-    z-index: -10;
-  }
+#cars .card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: relative;
+  z-index: -10;
+}
 
-  .flex {
-    color: var(--DARK);
-    background: var(--LIGHT_75);
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    padding: .5rem 1rem;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: nowrap;
-    color: inherit;
-  }
+#cars .card .flex {
+  color: var(--DARK);
+  background: var(--LIGHT_75);
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: .5rem 1rem;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: nowrap;
+  color: inherit;
+  padding: 0 1rem;
+}
 
-  .price, .price p{
-    font-size: 3rem;
-    font-weight: bold;
-    text-align: right;
-    width: max-content;
-  }
+#cars .card .price,
+.price p {
+  font-size: 3rem;
+  font-weight: bold;
+  text-align: right;
+  width: max-content;
+}
 
-  @media screen and (min-width: 768px) and (max-width: 1023px) {
+#cars .cardShadow .flex>div:first-of-type p {
+  line-height: 1;
+}
+
+
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  #cars .card {
     height: 300px;
   }
+}
 
-  @media screen and (min-width: 1024px) {
+@media screen and (min-width: 1024px) {
+  #cars .card {
     height: 250px;
+  }
 
-    &:hover {
-      transform: scale(1.05);
-    }
+  #cars .card:hover {
+    transform: scale(1.05);
   }
 }

@@ -21,22 +21,13 @@
 }
 
 #footer .flex {
-  justify-content: space-between;
+  display: block;
 }
 
 #footer .flex>div {
-  flex: 1;
+  margin-bottom: 3rem;
 }
 
-@media screen and (max-width: 769px) and (orientation: portrait) {
-  #footer .flex {
-    display: block;
-  }
-
-  #footer .flex>div {
-    margin-bottom: 3rem;
-  }
-}
 
 #footer .store {
   margin: 0;
@@ -50,4 +41,19 @@
 
 #footer form {
   margin: 0;
+}
+
+@media screen and (min-width: 768px) {
+  #footer .flex {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+
+
+  #footer .flex>div {
+    flex: 1;
+  }
 }

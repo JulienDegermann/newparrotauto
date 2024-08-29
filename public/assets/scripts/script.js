@@ -3,8 +3,6 @@ const navigation = document.querySelector('#header .navigation');
 
 const icons = document.querySelectorAll('#burgerMenu svg');
 
-console.log(burgerMenu);
-
 burgerMenu.addEventListener('click', () => {
   navigation.classList.toggle('active');
 

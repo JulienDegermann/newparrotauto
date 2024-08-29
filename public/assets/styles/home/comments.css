@@ -19,7 +19,7 @@
 }
 
 .glide__arrow {
-  padding: .25rem 1rem;
+  padding: .5rem 1rem;
   margin: .25rem .25rem 0;
 }
 
@@ -81,13 +81,24 @@ form input[type='radio'] {
   cursor: pointer;
   width: auto;
 }
+
 form input[type='radio']:first-of-type {
   margin-left: 1rem;
 }
-  
+
 #addComment {
-  display: none;
+  height: 0;
+  overflow: hidden;
+  transform: all 10s linear;
+  max-height: max-content;
+  /* display: none; */
 }
+
+#addComment.active {
+  height: 100vh;
+
+}
+
 
 #addComment .CTA {
   margin: 0;

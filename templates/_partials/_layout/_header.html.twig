@@ -1,6 +1,7 @@
 <div class="container">
   <div class="flex">
-    <a href="/"><h1 id="mainTitle">Garage <br /> Vincent <br /> PARROT</h1></a>
+    {# <a href="/"><h1 id="mainTitle">Garage <br /> Vincent <br /> PARROT</h1></a> #}
+    <a id="mainTitle" href="/"><h1>{{ company.name }}</h1></a>
     {% include './_partials/_layout/_navigation.html.twig' %}
     <div class="flex">
       <a id="phoneButton" href="tel:{{ store.phone }}" class="button CTA">{{ store.phone }}</a>

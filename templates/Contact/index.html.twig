@@ -7,7 +7,7 @@
 {% block body %}
   <section id="contact">
     <div class="container">
-      <h2 class="sectionTitle">besoin d'informations ? c'est ici</h2>
+      <h2 class="sectionTitle">besoin d'informations ?</h2>
       <div class="flex">
         <div id="globalInfos" class="flex">
           <div id="companyInfo">
@@ -16,10 +16,20 @@
           </div>
           <div id="storeInfo">
             <h3>… près de chez vous</h3>
-            
-            
+            <p>
+              {% for store in stores %}
+                {% if not loop.first %}
+                  {% if not loop.last %}
+                    ,
+                  {% else %}
+                    ou encore
+                  {% endif %}
+                {% endif %}
+                {{ store.city }}
+              {% endfor %}, nous sommes déjà présents dans plusieurs villes de France.
+            </p>
             {# debut #}
-{% include '_partials/_layout/_openings.html.twig' %}
+            {# {% include '_partials/_layout/_openings.html.twig' %} #}
             {# fin #}
           </div>
         </div>
