@@ -8,6 +8,7 @@ use App\Repository\UserRepository;
 use App\Repository\StoreRepository;
 use App\Repository\CompanyRepository;
 use App\Repository\MessageRepository;
+use App\Traits\Pages\CreateFormTrait;
 use App\Traits\Pages\DatasTrait;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
@@ -16,10 +17,12 @@ use Symfony\Component\Routing\Attribute\Route;
 use Symfony\Component\Serializer\SerializerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 
 class ContactController extends AbstractController
 {
     use DatasTrait;
+    use CreateFormTrait;
 
     #[Route('/contact', name: 'app_contact')]
     public function index(
@@ -40,23 +43,11 @@ class ContactController extends AbstractController
         $params = $datas['params'];
         $compagny = $datas['company'];
 
-        $message = new Message();
-        $form = $this->createForm(ContactType::class, $message);
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
-            // dd($form->get('author')->get('email')->getData());
-            $user = $userRepository->findOneBy(['email' => $form->get('author')->get('email')->getData()]);
-            if ($user) {
-                $author = $user;
-            } else {
-                $author = $form->get('author')->getData();
-            }
-            $message = $form->getData();
-            $message->setAuthor($author);
-            $messageRepository->save($message);
-
-            return $this->redirectToRoute('app_contact');
+        $form = $this->newMessage('app_contact', $request, $messageRepository, $userRepository);
+        
+        // check if form is a redirect response (form is valid)
+        if ($form instanceof RedirectResponse) {
+            return $form;
         }
 
         return $this->render('Contact/index.html.twig', [

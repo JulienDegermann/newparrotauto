@@ -2,6 +2,7 @@
 
 {% block stylesheets %}
   <link rel="stylesheet" href="{{ asset('assets/styles/vehicules/detail.css') }}" />
+  <link rel="stylesheet" href="{{ asset('assets/styles/contact/form.css') }}" />
 {% endblock %}
 
 {% block body %}
@@ -35,8 +36,17 @@
           <h3 class="infoTitle">description du véhicule</h3>
 
           <p>{{ car.text }}</p>
+
+          <button id="more" class="button CTA">Plus d'informations</button>
+        </div>
+        <div id="detailForm">
+          {% include './_partials/_layout/_form.html.twig' %}
         </div>
       </div>
     </div>
   </section>
+{% endblock %}
+
+{% block scripts %}
+  <script src="{{ asset('assets/scripts/vehicules/script.js') }}"></script>
 {% endblock %}

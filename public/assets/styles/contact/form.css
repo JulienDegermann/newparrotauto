@@ -20,7 +20,6 @@ form textarea {
   padding: .5rem .5rem;
   border: 1px solid transparent;
   outline: none;
-
 }
 
 form select:focus,
@@ -33,7 +32,6 @@ form .CTA {
   margin-top: 1rem;
   font-weight: bold;
   font-size: 1.3rem;
-  /* transform: translateX(-50%); */
 }
 
 form .CTA:hover {

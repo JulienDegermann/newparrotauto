@@ -2,14 +2,16 @@
   font-weight: bold;
 }
 
-#detail .infoTitle {
+#detail .infoTitle,
+#detail #detailForm h3 {
   font-size: 1.5em;
   font-weight: bold;
   margin: 3rem 0 1rem;
+}
 
-  &:first-of-type {
-    margin-top: 0;
-  }
+#detail .infoTitle:first-of-type,
+#detail #detailForm h3 {
+  margin-top: 0;
 }
 
 #detail ul,
@@ -17,30 +19,83 @@
   margin: 1rem;
 }
 
-.flex>div {
+#detail .flex>div {
   flex: 1;
   margin: 1rem;
 }
 
-.images {
-  img {
-    width: 100%;
-    object-fit: cover;
-  }
+#detail .images {
+  overflow: hidden;
 }
+
+#detail .images img {
+  width: 100%;
+  object-fit: cover;
+}
+
 
 #detail ul li {
   margin: .5rem;
+}
 
-  &::before {
-    content: '';
-    display: inline-block;
-    width: 10px;
-    height: 4px;
-    position: relative;
-    top: -.25em;
-    border-radius: 50%;
-    background: var(--PRIMARY);
-    margin-right: .5rem;
+#detail ul li::before {
+  content: '';
+  display: inline-block;
+  width: 10px;
+  height: 4px;
+  position: relative;
+  top: -.25em;
+  border-radius: 50%;
+  background: var(--PRIMARY);
+  margin-right: .5rem;
+}
+
+#detail .flex {
+  flex-direction: column;
+}
+
+#detail #detailForm {
+  flex: initial;
+  background: var(--LIGHT);
+  overflow: hidden;
+  margin: 0;
+  height: auto;
+  max-height: 0;
+}
+
+#detail #detailForm.active {
+  background: var(--LIGHT);
+  max-height: 100vh;
+  margin: 3rem 1rem 1rem;
+}
+
+@media screen and (min-width: 1024px) {
+  #detail .flex {
+    flex-direction: row
+  }
+
+  #detail #detailForm {
+    width: auto;
+    max-width: 0;
+    max-height: 100%;
+    flex: 0;
+  }
+
+  #detail #detailForm.active {
+    margin: 1rem 2rem;
+    height: auto;
+    flex: 1;
+    max-width: 100vw;
+  }
+}
+
+#detail .w-50 > .formInput {
+  width: 100%;
+}
+
+@media screen and (min-width: 1024px) and (max-width: 1400px) {
+  #detail .images.hidden {
+    width: 0;
+    flex: initial;
   }
 }
