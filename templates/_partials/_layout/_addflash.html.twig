@@ -1,0 +1,12 @@
+<div id="flashContainer">
+  {# <div class="container"> #}
+    {% for label, messages in app.flashes %}
+      {% for message in messages %}
+        <div class="flash {{ label }}">
+          <p>{{ message|raw }}</p>
+          <button class="close" type="button" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        </div>
+      {% endfor %}
+    {% endfor %}
+  {# </div> #}
+</div>

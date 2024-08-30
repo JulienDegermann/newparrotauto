@@ -40,7 +40,7 @@
 
 #cars .card .price,
 .price p {
-  font-size: 3rem;
+  font-size: 2rem;
   font-weight: bold;
   text-align: right;
   width: max-content;

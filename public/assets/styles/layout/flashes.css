@@ -1,0 +1,75 @@
+@import '../animations/animations.css';
+
+#flashContainer {
+  position: fixed;
+  bottom: 2rem;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  padding: .5rem
+}
+
+#flashContainer .flash {
+  padding: 10px;
+  color: var(--DARK);
+  font-size: 1.2rem;
+  border-radius: .25rem;
+  background: var(--LIGHT);
+  width: max-content;
+  display: flex;
+  position: relative;
+  max-width: 100%;
+  color: var(--LIGHT);
+  padding-right: 1rem;
+}
+
+#flashContainer .flash p {
+  display: inline-block;
+  width: max-content;
+}
+
+#flashContainer .flash::before {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 5px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background: var(--DARK);
+  animation: flashClose 5s linear forwards;
+}
+
+#flashContainer .flash .close {
+  cursor: pointer;
+  border: none;
+  background: none;
+  font-size: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 1rem;
+  height: 1rem;
+  color: var(--LIGHT);
+  margin-left: .5rem;
+}
+
+#flashContainer .flash.success {
+  background: var(--SUCCESS);
+
+}
+
+#flashContainer .flash.error {
+  color: var(--LIGHT);
+  background-color: var(--ERROR);
+}
+
+#flashContainer .flash.warning {
+  background: var(--INFO);
+}
+
+@media screen and (min-width: 1024px) {
+  #flashContainer {
+    bottom: 0;
+  }
+}

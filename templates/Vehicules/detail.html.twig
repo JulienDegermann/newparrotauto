@@ -12,9 +12,19 @@
       <div class="flex">
         <div class="images">
           {% if car.images is not empty %}
-            <img src="{{ asset('uploads/images/vehicules/' ~ car.images[0].getFileName) }}" alt="photo de {{ car.model }}" />
+            <img id="mainPicture" src="{{ asset('uploads/images/vehicules/' ~ car.images[0].getFileName) }}" alt="photo de {{ car.model }}" />
           {% else %}
             <img src="{{ asset('assets/images/no-image.jpeg') }}" alt="image par défaut" />
+          {% endif %}
+
+          {% if (car.images|length) > 1 %}
+            <div class="flex imageCarousel">
+            {% for image in car.images %}
+              <img src="{{ asset('uploads/images/vehicules/' ~ image.getFileName) }}" alt="photo de {{ car.model }}" />
+              
+            {% endfor %}  
+            
+            </div>
           {% endif %}
         </div>
         <div class="infos">

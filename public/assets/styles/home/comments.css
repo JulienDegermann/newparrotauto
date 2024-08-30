@@ -54,14 +54,16 @@ svg path {
   display: inline;
 }
 
-form {
-  width: 50%;
-}
-
 form .formInput .flex {
   align-items: center;
   width: max-content;
 }
+
+/* star wrapper height */
+#addComment .stars {
+  line-height: 0;
+}
+
 
 form label svg {
   cursor: pointer;
@@ -90,15 +92,13 @@ form input[type='radio']:first-of-type {
   height: 0;
   overflow: hidden;
   transform: all 10s linear;
-  max-height: max-content;
-  /* display: none; */
+  height: auto;
+  max-height: 0;
 }
 
 #addComment.active {
-  height: 100vh;
-
+  max-height: 100vh;
 }
-
 
 #addComment .CTA {
   margin: 0;

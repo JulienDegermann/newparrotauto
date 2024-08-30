@@ -57,7 +57,27 @@ form .formInput * {
 
 form .errors {
   color: var(--ERROR);
-  position: absolute;
   top: 100%;
   left: 0;
 }
+
+form .formInput label,
+form .formInput legend {
+  width: auto;
+}
+
+.formInput label::before {
+  content: '';
+  display: inline-block;
+  width: max-content;
+  margin-right: .5rem;
+}
+.formInput.valid label::before {
+  content: '✅';
+}
+.formInput.notValid label::before {
+  content: '❌';
+}
+
+
+

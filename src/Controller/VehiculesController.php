@@ -79,13 +79,12 @@ class VehiculesController extends AbstractController
         $car = $carRepository->findOneBy(['id' => $id]);
 
         $form = $this->newMessage('app_vehicules', $request, $messageRepository, $userRepository);
-        
+
         // check if form is a redirect response (form is valid)
         if ($form instanceof RedirectResponse) {
             return $form;
         }
-
-
+        
         return $this->render('Vehicules/detail.html.twig', [
             'car' => $car,
             'store' => $storeExport,

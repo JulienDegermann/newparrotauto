@@ -39,7 +39,18 @@ trait CreateFormTrait
       $message = $form->getData();
       $message->setAuthor($author);
       $messageRepository->save($message);
+      $this->addFlash(
+        'success',
+        'Le message est bien envoyé. '
+      );
       return $this->redirectToRoute($route);
+    }
+
+    if ($form->isSubmitted() && !$form->isValid()) {
+      $this->addFlash(
+        'error',
+        'Le message n\'a pas été envoyé. Veuillez vérifier les champs.'
+      );
     }
 
     return $form;

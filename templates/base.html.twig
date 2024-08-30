@@ -2,7 +2,7 @@
 <html>
   <head>
     {% include './_partials/_layout/_head.html.twig' %}
-      
+
     {% block stylesheets %}
       {# custom stylesheets #}
     {% endblock %}
@@ -13,6 +13,8 @@
   </header>
 
   <main>
+    {% include './_partials/_layout/_addflash.html.twig' %}
+
     {% block body %}
       {# content of the page #}
     {% endblock %}
@@ -22,7 +24,7 @@
   </footer>
 
   <script src="{{ asset('assets/scripts/global/store.js') }}"></script>
-  <script src="{{ asset('assets/scripts/script.js') }}"></script>
+  <script type="module" src="{{ asset('assets/scripts/script.js') }}"></script>
   {{ encore_entry_script_tags('app') }}
   {% block scripts %}
     {# custom scripts #}

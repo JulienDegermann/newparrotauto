@@ -7,6 +7,8 @@
 @import './layout/navigation.css';
 @import './layout/body.css';
 @import './layout/footer.css';
+@import './layout/flashes.css';
+
 
 /* components */
 @import './layout/buttons.css';

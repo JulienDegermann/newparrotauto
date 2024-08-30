@@ -12,6 +12,7 @@
   --DARK_75: #212121BF;
   --LIGHT_75: #F5F5F5BF;
   --LIGHT_00: #F5F5F500;
+  --ERROR_75: #F44336BF;
 
   /* gradients */
   --GRADIENT_PRIMARY_DARK: radial-gradient(var(--PRIMARY) 0%, var(--DARK) 140%);

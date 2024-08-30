@@ -1,7 +1,7 @@
 <nav class="navigation">
   <ul class="navList">
     <li><a class="navLink link {% if app.request.attributes.get('_route') == 'app_home'%}active{% endif %} " href="{{ path('app_home') }}">accueil</a></li>
-    <li><a class="navLink link {% if app.request.attributes.get('_route') == 'app_vehicules'%}active{% endif %} " href="{{ path('app_vehicules') }}">véhicules d'occasion</a></li>
+    <li><a class="navLink link {% if app.request.attributes.get('_route') == 'app_vehicules' or  app.request.attributes.get('_route') == 'app_vehicule_show' %}active{% endif %} " href="{{ path('app_vehicules') }}">véhicules d'occasion</a></li>
     <li><a class="navLink link {% if app.request.attributes.get('_route') == 'app_contact'%}active{% endif %} " href="{{ path('app_contact') }}">contact</a></li>
   </ul>
 </nav>

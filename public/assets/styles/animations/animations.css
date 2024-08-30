@@ -9,3 +9,13 @@
     transform: rotate(-15deg);
   }
 }
+
+
+@keyframes flashClose {
+  0% {
+    width: 100%;
+  }
+  100% {
+    width: 0;
+  }
+}

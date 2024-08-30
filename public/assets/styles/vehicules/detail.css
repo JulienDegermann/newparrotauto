@@ -14,7 +14,8 @@
   margin-top: 0;
 }
 
-#detail ul,
+#detail .infos ul,
+#detail .images ul,
 #detail p {
   margin: 1rem;
 }
@@ -28,17 +29,40 @@
   overflow: hidden;
 }
 
-#detail .images img {
+#detail .images #mainPicture {
   width: 100%;
-  object-fit: cover;
+  object-fit: contain;
+  height: 400px;
+  background-color: black;
 }
 
+#detail .imageCarousel {
+  overflow-x: auto;
+  overflow-y: hidden;
+  height: 100px;
 
-#detail ul li {
+}
+
+#detail .imageCarousel img {
+  object-fit: cover;
+  height: 100%;
+  width: auto;
+  aspect-ratio: 1/1;
+  margin-right: .5rem;
+  cursor: pointer;
+}
+
+#detail .imageCarousel img:last-of-type {
+  margin-right: 0;
+}
+
+#detail .infos ul li,
+#detail .images ul li {
   margin: .5rem;
 }
 
-#detail ul li::before {
+#detail .infos ul li::before,
+#detail .images ul li::before {
   content: '';
   display: inline-block;
   width: 10px;
@@ -50,7 +74,7 @@
   margin-right: .5rem;
 }
 
-#detail .flex {
+#detail .container>.flex {
   flex-direction: column;
 }
 
@@ -69,9 +93,16 @@
   margin: 3rem 1rem 1rem;
 }
 
+
+#detail .w-50>.formInput {
+  width: 100%;
+}
+
+
+
 @media screen and (min-width: 1024px) {
-  #detail .flex {
-    flex-direction: row
+  #detail .container>.flex {
+    flex-direction: row;
   }
 
   #detail #detailForm {
@@ -87,10 +118,6 @@
     flex: 1;
     max-width: 100vw;
   }
-}
-
-#detail .w-50 > .formInput {
-  width: 100%;
 }
 
 @media screen and (min-width: 1024px) and (max-width: 1400px) {
